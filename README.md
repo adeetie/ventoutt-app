@@ -1,5 +1,8 @@
-<<<<<<< HEAD
-# React + TypeScript + Vite
+# Ventoutt App
+
+This project is a migration of the Ventoutt website to React + TypeScript + Vite.
+
+## React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
@@ -72,6 +75,3 @@ export default defineConfig([
   },
 ])
 ```
-=======
-# ventoutt-app
->>>>>>> c89cb29404df58439ec888b2aa92cced303e385a
