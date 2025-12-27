@@ -82,7 +82,7 @@ const Hero: React.FC = () => {
     }, []);
 
     return (
-        <section ref={containerRef} className="vo-hero min-h-screen relative flex items-center pt-[150px] lg:pt-[180px] pb-20 bg-vo-bg overflow-hidden">
+        <section ref={containerRef} className="vo-hero min-h-screen relative flex items-center pt-[150px] lg:pt-[180px] pb-20 bg-theme-primary overflow-hidden">
             <div className="vo-hero__container w-full max-w-[1240px] mx-auto px-[5%] flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-10 items-center">
 
                 {/* Content Wrapper - Uses display: contents on mobile to allow reordering of children */}
