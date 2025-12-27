@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/global/Header/Header.tsx';
 import Footer from './components/global/Footer/Footer.tsx';
 import Chatbot from './components/global/Chatbot/Chatbot.tsx';
@@ -21,7 +21,7 @@ function App() {
   }, []);
 
   return (
-    <Router basename={import.meta.env.BASE_URL}>
+    <Router>
       <div className="min-h-screen bg-vo-bg flex flex-col">
         <Header />
         <main className="flex-grow">
