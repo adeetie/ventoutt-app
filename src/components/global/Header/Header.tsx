@@ -209,7 +209,7 @@ const Header: React.FC = () => {
                     <Link to="/blog" className="font-body font-medium text-[1.1rem] text-vo-black py-3 hover:text-primary" onClick={() => setIsMenuOpen(false)}>Blog</Link>
                 </nav>
 
-                <button className="w-full max-w-[250px] mt-10 bg-[#F57F17] text-white font-body font-semibold py-3.5 px-5 rounded-[50px] shadow-md hover:bg-[#E65100] transition-colors text-center" onClick={() => setIsMenuOpen(false)}>
+                <button className="w-full max-w-[250px] mt-10 btn-primary py-3.5 px-5 rounded-[50px] shadow-md text-center" onClick={() => setIsMenuOpen(false)}>
                     Get Started
                 </button>
             </div>

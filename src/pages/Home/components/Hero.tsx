@@ -109,7 +109,7 @@ const Hero: React.FC = () => {
                             We believe that mental health is just as important as physical health, and our mission is to
                             provide support, education, and a judgment-free space for everyone.
                         </p>
-                        <a href="#" className="vo-btn--hero-new inline-flex items-center gap-4 w-fit bg-accent-green-dark text-white pl-[6px] pr-5 py-[6px] rounded-[50px] font-body font-semibold text-base shadow-[0_4px_12px_rgba(107,144,113,0.3)] hover:-translate-y-[2px] hover:shadow-[0_6px_16px_rgba(107,144,113,0.4)] transition-all duration-300">
+                        <a href="#" className="btn-primary inline-flex items-center gap-4 w-fit pl-[6px] pr-5 py-[6px] rounded-[50px] font-body font-semibold text-base shadow-sm transition-all duration-300">
                             <img
                                 src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80"
                                 alt="Avatar"
