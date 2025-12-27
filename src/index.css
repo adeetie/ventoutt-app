@@ -357,6 +357,10 @@
    BASE STYLES
    ================================================ */
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     font-family: var(--font-body);
     background-color: var(--theme-bg-primary);

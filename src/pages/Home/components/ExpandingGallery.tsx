@@ -75,7 +75,7 @@ const ExpandingGallery: React.FC = () => {
                                             </p>
                                             <Link
                                                 to={card.link}
-                                                className="inline-flex items-center gap-2 text-primary font-heading font-bold hover:underline text-sm sm:text-lg group"
+                                                className="inline-flex items-center gap-2 text-white font-heading font-bold hover:underline text-sm sm:text-lg group"
                                             >
                                                 View More
                                                 <svg className="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none">

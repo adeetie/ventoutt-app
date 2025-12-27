@@ -90,7 +90,7 @@ const Hero: React.FC = () => {
 
                     {/* Greeting Wrapper (Order 1 on mobile) */}
                     <div className="vo-hero__greeting-wrapper order-1 lg:order-none w-full flex justify-start items-end h-24 lg:h-36 mb-2 overflow-hidden">
-                        <h2 id="dynamic-hello" ref={greetingRef} className="vo-hero__greeting font-heading font-bold text-[6rem] lg:text-[7.5rem] text-primary leading-none opacity-100 inline-block tracking-[-1px]">
+                        <h2 id="dynamic-hello" ref={greetingRef} className="vo-hero__greeting font-heading font-bold text-[6rem] lg:text-[7.5rem] text-[#F57F17] leading-none opacity-100 inline-block tracking-[-1px]">
                             {/* Text injected by GSAP */}
                             hello..
                         </h2>
@@ -109,7 +109,7 @@ const Hero: React.FC = () => {
                             We believe that mental health is just as important as physical health, and our mission is to
                             provide support, education, and a judgment-free space for everyone.
                         </p>
-                        <a href="#" className="btn-primary inline-flex items-center gap-4 w-fit pl-[6px] pr-5 py-[6px] rounded-[50px] font-body font-semibold text-base shadow-sm transition-all duration-300">
+                        <a href="#" className="btn-secondary inline-flex items-center gap-4 w-fit pl-[6px] pr-5 py-[6px] rounded-[50px] font-body font-semibold text-base shadow-sm transition-all duration-300">
                             <img
                                 src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80"
                                 alt="Avatar"
@@ -124,14 +124,14 @@ const Hero: React.FC = () => {
                 <div className="vo-hero__visual order-3 lg:order-2 lg:col-start-2 w-full flex justify-center lg:justify-end relative pr-0 lg:pr-5 my-4 lg:my-0">
                     <div className="vo-hero__frame-wrapper relative z-1 inline-block rotate-12">
                         {/* Top Edge Squibble (Touching Top Left Corner) */}
-                        <svg className="vo-doodle vo-doodle--top-edge absolute z-10 w-[80px] lg:w-[140px] text-accent-green-dark top-[-10px] left-[-10px] lg:top-[-20px] lg:left-[-20px] -rotate-[15deg]" viewBox="0 0 140 50" fill="none">
+                        <svg className="vo-doodle vo-doodle--top-left absolute z-10 w-[80px] lg:w-[140px] text-green-100 top-[-10px] left-[-10px] lg:top-[-20px] lg:left-[-20px] -rotate-[15deg]" viewBox="0 0 140 50" fill="none">
                             <path d="M10 25 Q 25 10, 40 25 T 70 25 T 100 25 T 130 25" stroke="currentColor" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
 
 
 
                         {/* Image Frame */}
-                        <div className="vo-hero__img-frame relative bg-white p-3 lg:p-[12px] rounded-[32px] shadow-[0_25px_50px_rgba(0,0,0,0.1)] -rotate-3 z-5 overflow-hidden w-[300px] h-[280px] lg:w-[440px] lg:h-[540px] border-[8px] lg:border-0 border-white">
+                        <div className="vo-hero__img-frame relative bg-[#F9EBE8] p-3 lg:p-[12px] rounded-[32px] shadow-[0_25px_50px_rgba(0,0,0,0.1)] -rotate-3 z-5 overflow-hidden w-[300px] h-[280px] lg:w-[440px] lg:h-[540px] border-[8px] lg:border-0 border-white">
                             <div className="vo-hero-slides relative w-full h-full rounded-[20px] overflow-hidden">
                                 {SLIDES.map((url, idx) => (
                                     <div

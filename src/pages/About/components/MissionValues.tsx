@@ -96,7 +96,7 @@ const MissionValues: React.FC = () => {
                                 alt={card.title}
                                 className="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:scale-110 transition-transform duration-700"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-transparent p-8 md:p-12 flex flex-col justify-end">
+                            <div className="absolute inset-0 p-8 md:p-12 flex flex-col justify-end">
                                 <h3 className="text-4xl md:text-5xl font-serif mb-3 md:mb-5 text-white">{card.title}</h3>
                                 <p className="text-gray-200 text-xl leading-relaxed">
                                     {card.mobileDesc || card.desc}
