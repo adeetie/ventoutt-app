@@ -8,28 +8,23 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
 const STEPS = [
     {
         num: "01",
-        desc: "Pick what you need - a full therapy session or a quick vent.",
-        color: "#F4A261" // Orange
+        desc: "Talk to our chatbot. Tell us what's on your mind—completely anonymous & judgment-free.",
+        color: "#F4A261"
     },
     {
         num: "02",
-        desc: "Choose your listener or therapist from the list.",
-        color: "#E6914F" // Orange
+        desc: "Get Matched. We'll pair you with the best professional for your needs.",
+        color: "#E6914F"
     },
     {
         num: "03",
-        desc: "Select a time that works for you.",
-        color: "#CE7830" // Darker Orange
+        desc: "Schedule your session. Pick a time that works for you.",
+        color: "#CE7830"
     },
     {
         num: "04",
-        desc: "Pay securely and get your session link via email.",
-        color: "#7F7053" // Brown/Olive
-    },
-    {
-        num: "05",
-        desc: "Talk it out. Feel lighter. Share how it went.",
-        color: "#2F4858" // Dark Green
+        desc: "Start your journey. Connect via text, audio, or video and start feeling better.",
+        color: "#7F7053"
     }
 ];
 
@@ -151,9 +146,9 @@ const HowItWorks: React.FC<HowItWorksProps> = ({ title = "How It Works", steps }
     }, { scope: containerRef, dependencies: [displaySteps] });
 
     return (
-        <section ref={containerRef} className="how-scroll-wrapper py-24 bg-[#F8F5F0] relative overflow-hidden">
+        <section ref={containerRef} className="how-scroll-wrapper py-24 bg-[#faf7f2] relative overflow-hidden">
             <div className="max-w-[1400px] mx-auto px-[5%]">
-                <div className="mb-16 sm:mb-24 space-y-2">
+                <div className="mb-16 sm:mb-24 space-y-2 text-left">
                     <span className="text-[#5D5D5D] font-bold text-xs tracking-[0.2em] uppercase block mb-4">SIMPLE PROCESS</span>
                     <h2 className="font-heading text-4xl sm:text-6xl font-bold text-[#1a1a1a]">{title}</h2>
                 </div>
@@ -166,8 +161,8 @@ const HowItWorks: React.FC<HowItWorksProps> = ({ title = "How It Works", steps }
                     </div>
 
                     <div className={`grid gap-6 relative ${displaySteps.length === 3 ? 'grid-cols-3' :
-                            displaySteps.length === 4 ? 'grid-cols-4' :
-                                'grid-cols-5'
+                        displaySteps.length === 4 ? 'grid-cols-4' :
+                            'grid-cols-5'
                         }`}>
                         {displaySteps.map((step, idx) => (
                             <div key={idx} className="how-desktop-card flex flex-col pt-0 group">

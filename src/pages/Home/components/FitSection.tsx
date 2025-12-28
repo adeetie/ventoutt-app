@@ -61,7 +61,7 @@ const FitSection: React.FC = () => {
     };
 
     return (
-        <section className="vo-fit-section py-24 px-[5%] bg-[#faf7f2] overflow-hidden relative">
+        <section className="vo-fit-section py-24 px-[5%] bg-white overflow-hidden relative">
             <div className="max-w-[1240px] mx-auto space-y-16 relative">
 
                 {/* Header */}
@@ -109,84 +109,87 @@ const FitSection: React.FC = () => {
                         className="flex lg:grid lg:grid-cols-3 gap-6 lg:gap-8 items-stretch text-left overflow-x-auto lg:overflow-visible snap-x snap-mandatory pb-8 lg:pb-0 -mx-[5%] px-[50%] lg:px-0 lg:mx-0 touch-pan-x no-scrollbar"
                     >
 
-                        {/* 1. Venting Card (Dark) */}
+                        {/* 1. Instant Venting Card (Dark) */}
                         <div className="transition-all duration-300 ease-out snap-center shrink-0 w-[85vw] max-w-[380px] lg:w-auto
                             group relative bg-[#1A1A1A] p-8 lg:p-10 rounded-[32px] flex flex-col hover:-translate-y-2 hover:shadow-2xl h-auto
                             data-[active=true]:scale-100 data-[active=true]:opacity-100 data-[active=false]:scale-90 data-[active=false]:opacity-50 lg:data-[active=false]:scale-100 lg:data-[active=false]:opacity-100"
                         >
                             <div className="mb-8">
-                                <h3 className="font-heading font-bold text-3xl text-white mb-2">Venting</h3>
+                                <h3 className="font-heading font-bold text-3xl text-white mb-2">Instant Venting</h3>
                                 <p className="text-gray-400 font-medium text-sm mb-6">Empathetic Listeners</p>
-                                <p className="text-white font-bold text-xl">Low Cost ($)</p>
+                                <p className="text-white font-bold text-xl">Low Cost ($5/session)</p>
                             </div>
 
                             <ul className="space-y-4 font-body text-white/90 text-sm mb-10 flex-grow">
                                 <li className="flex items-start"><span className="text-primary mr-3 font-bold">✓</span> <strong>Goal:</strong>&nbsp; Instant Relief</li>
-                                <li className="flex items-start"><span className="text-primary mr-3 font-bold">✓</span> <strong>Focus:</strong>&nbsp; "Feeling Heard"</li>
+                                <li className="flex items-start"><span className="text-primary mr-3 font-bold">✓</span> <strong>Focus:</strong>&nbsp; "Feeling Heard Right Now"</li>
                                 <li className="flex items-start"><span className="text-primary mr-3 font-bold">✓</span> <strong>Availability:</strong>&nbsp; Instant Access</li>
+                                <li className="flex items-start"><span className="text-primary mr-3 font-bold">✓</span> <strong>Best for:</strong>&nbsp; One-time situations, immediate release</li>
                             </ul>
 
                             <button
                                 className="w-full h-12 rounded-full border border-[#E68638] text-[#E68638] font-heading font-bold text-lg hover:bg-[#E68638] hover:text-white transition-colors mt-auto"
                                 onClick={() => window.dispatchEvent(new CustomEvent('open-chatbot'))}
                             >
-                                Start Chat
+                                Start Venting
                             </button>
                         </div>
 
-                        {/* 2. Coaching Card (Green - Featured) */}
+                        {/* 2. Mental Health Guidance Card (Green - Featured) */}
                         <div className="transition-all duration-300 ease-out snap-center shrink-0 w-[85vw] max-w-[380px] lg:w-auto
                             group relative bg-[#1B3B36] p-8 lg:p-10 rounded-[32px] flex flex-col shadow-2xl z-10 border border-[#2C5F56] h-auto
                             lg:scale-105
                             data-[active=true]:scale-100 data-[active=true]:opacity-100 data-[active=false]:scale-90 data-[active=false]:opacity-50 lg:data-[active=false]:scale-105 lg:data-[active=false]:opacity-100"
                         >
                             <div className="mb-8 relative">
-                                <h3 className="font-heading font-bold text-3xl text-white mb-2">Coaching</h3>
-                                <p className="text-gray-300 font-medium text-sm mb-4">Qualified Psychologists</p>
+                                <h3 className="font-heading font-bold text-3xl text-white mb-2">Mental Health Guidance</h3>
+                                <p className="text-gray-300 font-medium text-sm mb-4">MA Psychology Professionals</p>
 
                                 <span className="inline-block bg-[#3D635B] text-white text-[10px] font-bold px-3 py-1 rounded-md uppercase tracking-wider mb-4">
                                     Most Popular
                                 </span>
 
-                                <p className="text-white font-bold text-xl">Affordable ($$)</p>
+                                <p className="text-white font-bold text-xl">Affordable ($$) - $35/session</p>
                             </div>
 
                             <ul className="space-y-4 font-body text-white/90 text-sm mb-10 flex-grow">
-                                <li className="flex items-start"><span className="text-[#E68638] mr-3 font-bold">✓</span> <strong>Goal:</strong>&nbsp; Growth & Action Plans</li>
-                                <li className="flex items-start"><span className="text-[#E68638] mr-3 font-bold">✓</span> <strong>Focus:</strong>&nbsp; "Building Skills"</li>
-                                <li className="flex items-start"><span className="text-[#E68638] mr-3 font-bold">✓</span> <strong>Availability:</strong>&nbsp; Same-Day Priority</li>
+                                <li className="flex items-start"><span className="text-[#E68638] mr-3 font-bold">✓</span> <strong>Goal:</strong>&nbsp; Growth & Lasting Change</li>
+                                <li className="flex items-start"><span className="text-[#E68638] mr-3 font-bold">✓</span> <strong>Focus:</strong>&nbsp; "Building Skills & Clarity"</li>
+                                <li className="flex items-start"><span className="text-[#E68638] mr-3 font-bold">✓</span> <strong>Availability:</strong>&nbsp; Matched in 24 Hours</li>
+                                <li className="flex items-start"><span className="text-[#E68638] mr-3 font-bold">✓</span> <strong>Bonus:</strong>&nbsp; 50 FREE Texts to Start</li>
                             </ul>
 
                             <button
-                                className="w-full h-12 rounded-full bg-[#487067] text-white font-heading font-bold text-lg hover:bg-[#56857a] transition-colors hover:shadow-lg mt-auto"
+                                className="w-full h-12 rounded-full bg-[#3a7f56] text-white font-heading font-bold text-lg hover:bg-[#2e6645] transition-colors hover:shadow-lg mt-auto"
                                 onClick={() => window.dispatchEvent(new CustomEvent('open-chatbot'))}
                             >
                                 Get Matched
                             </button>
                         </div>
 
-                        {/* 3. Therapy Card (Dark) */}
+                        {/* 3. Professional Therapy Card (Dark) */}
                         <div className="transition-all duration-300 ease-out snap-center shrink-0 w-[85vw] max-w-[380px] lg:w-auto
                             group relative bg-[#1A1A1A] p-8 lg:p-10 rounded-[32px] flex flex-col hover:-translate-y-2 hover:shadow-2xl h-auto
                             data-[active=true]:scale-100 data-[active=true]:opacity-100 data-[active=false]:scale-90 data-[active=false]:opacity-50 lg:data-[active=false]:scale-100 lg:data-[active=false]:opacity-100"
                         >
                             <div className="mb-8">
-                                <h3 className="font-heading font-bold text-3xl text-white mb-2">Therapy</h3>
+                                <h3 className="font-heading font-bold text-3xl text-white mb-2">Professional Therapy</h3>
                                 <p className="text-gray-400 font-medium text-sm mb-6">Licensed Clinicians</p>
-                                <p className="text-white font-bold text-xl">Premium ($$$$)</p>
+                                <p className="text-white font-bold text-xl">Professional Service</p>
                             </div>
 
                             <ul className="space-y-4 font-body text-white/90 text-sm mb-10 flex-grow">
-                                <li className="flex items-start"><span className="text-[#E68638] mr-3 font-bold">✓</span> <strong>Goal:</strong>&nbsp; Medical Diagnosis</li>
-                                <li className="flex items-start"><span className="text-[#E68638] mr-3 font-bold">✓</span> <strong>Focus:</strong>&nbsp; "Deep Healing"</li>
+                                <li className="flex items-start"><span className="text-[#E68638] mr-3 font-bold">✓</span> <strong>Goal:</strong>&nbsp; Clinical Support & Deep Healing</li>
+                                <li className="flex items-start"><span className="text-[#E68638] mr-3 font-bold">✓</span> <strong>Focus:</strong>&nbsp; "Structured Treatment"</li>
                                 <li className="flex items-start"><span className="text-[#E68638] mr-3 font-bold">✓</span> <strong>Availability:</strong>&nbsp; By Appointment</li>
+                                <li className="flex items-start"><span className="text-[#E68638] mr-3 font-bold">✓</span> <strong>Best for:</strong>&nbsp; Clinical diagnosis, diagnosed conditions</li>
                             </ul>
 
                             <button
                                 className="w-full h-12 rounded-full border border-[#E68638] text-[#E68638] font-heading font-bold text-lg hover:bg-[#E68638] hover:text-white transition-colors mt-auto"
                                 onClick={() => window.dispatchEvent(new CustomEvent('open-chatbot'))}
                             >
-                                Join Waitlist
+                                Learn More
                             </button>
                         </div>
 

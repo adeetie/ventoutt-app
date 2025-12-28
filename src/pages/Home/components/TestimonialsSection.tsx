@@ -3,31 +3,39 @@ import React, { useRef, useEffect } from 'react';
 const TESTIMONIALS = [
     {
         type: 'text',
-        name: 'Emma, England',
+        name: 'Emily, USA',
         image: 'https://randomuser.me/api/portraits/women/1.jpg',
-        text: "Ventoutt is my go-to place when I need to vent. The anonymous chat feature allows me to express my feelings freely without judgment. It's incredible how talking to strangers online has helped me manage my stress and anxiety."
-    },
-    {
-        type: 'video',
-        name: 'Iya, Bosnia and Herzegovina',
-        videoUrl: 'https://www.youtube.com/embed/fFk_z0jpqjo?enablejsapi=1&rel=0&modestbranding=1'
+        text: "I was skeptical about online mental health support at first, but Ventoutt changed everything for me. My professional guide truly listens without judgment. As a student on a tight budget, I could never afford the expensive therapy platforms, so having access to professional support that's both expert and affordable has made all the difference."
     },
     {
         type: 'text',
-        name: 'Jennifer R., USA',
+        name: 'Naman, USA',
+        image: 'https://randomuser.me/api/portraits/men/32.jpg',
+        text: "The trained listeners were not only understanding but also offered valuable insights. When I felt ready, moving on to professional guidance through Ventoutt was seamless. My guide, Nikita, has been incredible—she listens with so much patience and helps me look at my challenges in a completely new light."
+    },
+    {
+        type: 'text',
+        name: 'Sakura, Japan',
+        image: 'https://randomuser.me/api/portraits/women/68.jpg',
+        text: "The anonymity on Ventoutt gave me the courage to open up about personal challenges I could never share with friends. When I was ready to take the next step, transitioning to professional mental health guidance was seamless."
+    },
+    {
+        type: 'text',
+        name: 'Emma, England',
         image: 'https://randomuser.me/api/portraits/women/44.jpg',
-        text: "I struggled with anxiety for years and was skeptical about finding the right support. Then I connected with my therapist, and everything shifted. They really understood what I was going through, made me feel heard, and gave me tools that actually worked in my daily life."
+        text: "Ventoutt has become my go-to place for mental health support. The services are not only effective but also affordable. Honestly, in the beginning, I was a bit unsure since my guide was from another country, but to my surprise, the experience was far better than I expected."
     },
     {
         type: 'text',
-        name: 'Sarah M., USA',
-        image: 'https://randomuser.me/api/portraits/women/2.jpg',
-        text: "I was honestly really unsure about trying online therapy at first especially with a therapist from another country. But honestly, my therapist was amazing. They were there 24/7 whenever I needed support, and the cost was something I could actually afford."
+        name: 'Dakota, USA',
+        image: 'https://randomuser.me/api/portraits/men/12.jpg',
+        text: "Ventoutt has truly been my sanctuary. The affordable mental health sessions gave me the safe space I desperately needed to deal with stress and anxiety. I wasn't sure what to expect at first, but the support I received turned out to be even more valuable than I imagined."
     },
     {
-        type: 'video',
-        name: 'Ewa, France',
-        videoUrl: 'https://www.youtube.com/embed/t3D9OqoxLpM?enablejsapi=1&rel=0&modestbranding=1'
+        type: 'text',
+        name: 'Megha, UK',
+        image: 'https://randomuser.me/api/portraits/women/24.jpg',
+        text: "Using Ventoutt has truly been life-changing. As someone who struggles with anxiety, the affordable professional support options have made a huge difference. Being a college student, affordability really matters to me."
     }
 ];
 
@@ -89,60 +97,38 @@ const TestimonialsMarquee: React.FC = () => {
             onMouseEnter={() => isPausedRef.current = true}
             onMouseLeave={() => isPausedRef.current = false}
         >
-            <h2 className="vo-testimonials-title text-center font-heading text-3xl lg:text-5xl font-bold text-[#2D2D2D] max-w-4xl mx-auto px-6 mb-12 lg:mb-16 leading-tight">
+            <h2 className="vo-testimonials-title text-center font-heading text-3xl lg:text-5xl font-bold text-[#2D2D2D] max-w-4xl mx-auto px-6 mb-4 lg:mb-6 leading-tight">
                 Great conversations begin with great listeners and trusted support
             </h2>
+            <div className="text-center mb-12 text-sm text-gray-500 flex items-center justify-center gap-2">
+                <span className="text-yellow-500">💡</span> Tip: Click on any card to pause the carousel and read it.
+            </div>
 
-            <div className="marquee relative w-full">
-                <div
-                    ref={marqueeInnerRef}
-                    className="marquee-inner flex gap-6 will-change-transform"
-                >
-                    {TESTIMONIALS.map((testimonial, idx) => (
-                        <div
-                            key={idx}
-                            className={`vo-testimonial-card flex-shrink-0 w-[300px] lg:w-[400px] ${testimonial.type === 'video' ? 'vo-video-card' : ''}`}
-                        >
-                            {testimonial.type === 'text' ? (
-                                <>
-                                    <div className="vo-testimonial-name flex items-center gap-3 mb-4">
-                                        <img
-                                            src={testimonial.image}
-                                            alt={testimonial.name}
-                                            className="w-12 h-12 rounded-full object-cover"
-                                            loading="lazy"
-                                        />
-                                        <span className="font-body font-semibold text-[#2D2D2D]">
-                                            {testimonial.name}
-                                        </span>
-                                    </div>
-                                    <p className="font-body text-base text-[#5a5a5a] leading-[1.6]">
-                                        {testimonial.text}
-                                    </p>
-                                </>
-                            ) : (
-                                <>
-                                    <div className="vo-video-container aspect-[4/3] rounded-2xl overflow-hidden bg-gray-200 mb-3">
-                                        <iframe
-                                            width="100%"
-                                            height="100%"
-                                            src={testimonial.videoUrl}
-                                            title={`${testimonial.name} Testimonial`}
-                                            frameBorder="0"
-                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                            allowFullScreen
-                                            loading="lazy"
-                                            className="w-full h-full"
-                                        />
-                                    </div>
-                                    <div className="vo-video-caption font-body text-sm font-semibold text-[#2D2D2D] text-center">
-                                        {testimonial.name}
-                                    </div>
-                                </>
-                            )}
+            <div
+                ref={marqueeInnerRef}
+                className="marquee-inner flex gap-6 will-change-transform"
+            >
+                {TESTIMONIALS.map((testimonial, idx) => (
+                    <div
+                        key={idx}
+                        className="vo-testimonial-card flex-shrink-0 w-[300px] lg:w-[400px]"
+                    >
+                        <div className="vo-testimonial-name flex items-center gap-3 mb-4">
+                            <img
+                                src={testimonial.image}
+                                alt={testimonial.name}
+                                className="w-12 h-12 rounded-full object-cover"
+                                loading="lazy"
+                            />
+                            <span className="font-body font-semibold text-[#2D2D2D]">
+                                {testimonial.name}
+                            </span>
                         </div>
-                    ))}
-                </div>
+                        <p className="font-body text-base text-[#5a5a5a] leading-[1.6]">
+                            {testimonial.text}
+                        </p>
+                    </div>
+                ))}
             </div>
         </section>
     );

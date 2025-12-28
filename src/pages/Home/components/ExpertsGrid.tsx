@@ -9,60 +9,60 @@ const EXPERTS = [
     {
         id: 'pulkita',
         name: 'Pulkita W.',
-        role: 'Psychoanalytic Therapist',
+        role: 'Psychoanalytic Mental Health Expert',
         rating: 4.9,
         image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80',
         credentials: 'Masters Psychology | Psychoanalytic Fellowship',
-        expertise: ['Psychoanalytic Therapy', 'Sexual & Identity Issues'],
-        meta: 'USA-trained',
+        expertise: ['Psychoanalytic approaches', 'Sexual & Identity Issues', 'Family Systems work', 'Career-Related Stress'],
+        meta: 'USA-trained psychoanalyst',
         mobileDetails: {
             credentials: 'Masters Psychology | Psychoanalytic Fellowship',
-            expertise: ['Psychoanalytic Therapy', 'Sexual & Identity Issues', 'Family Systems Therapy'],
+            expertise: ['Psychoanalytic approaches', 'Sexual & Identity Issues', 'Family Systems work'],
             meta: 'USA-trained psychoanalyst'
         }
     },
     {
         id: 'muskan',
         name: 'Muskan K.',
-        role: 'CBT & Couples Counselor',
+        role: 'CBT & Relationship Expert',
         rating: 4.7,
         image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&q=80',
         credentials: '90% satisfaction rate',
-        expertise: ['Solution-Focused Therapy', 'Couples Counseling'],
+        expertise: ['Solution-Focused Brief work', 'Cognitive Behavioral approaches (CBT)', 'Couples & Relationship Guidance'],
         meta: null,
         mobileDetails: {
             credentials: null,
-            expertise: ['Solution-Focused Brief Therapy', 'Cognitive Behavioral Therapy (CBT)', 'Couples & Relationship Counseling'],
+            expertise: ['Solution-Focused Brief work', 'Cognitive Behavioral approaches (CBT)', 'Couples & Relationship Guidance'],
             meta: '90% satisfaction rate'
         }
     },
     {
         id: 'nishi',
         name: 'Nishi',
-        role: 'Clinical Psychiatrist',
+        role: 'Clinical Psychology Specialist',
         rating: 4.5,
         image: 'https://images.unsplash.com/photo-1554151228-14d9def656ec?w=400&q=80',
         credentials: 'MSc Clinical Psychology',
-        expertise: ['LGBTQ+ Affirming', 'Trauma & Grief'],
-        meta: '3+ years US exp',
+        expertise: ['LGBTQ+ Affirming Support', 'Adolescent & Childhood Trauma', 'Grief & Loss work'],
+        meta: '3+ years serving US clients',
         mobileDetails: {
             credentials: 'MSc Clinical Psychology',
-            expertise: ['LGBTQ+ Affirming Therapy', 'Adolescent & Childhood Trauma', 'Grief & Loss Counseling'],
+            expertise: ['LGBTQ+ Affirming Support', 'Adolescent & Childhood Trauma', 'Grief & Loss work'],
             meta: '3+ years serving US clients'
         }
     },
     {
         id: 'sarah',
         name: 'Dr. Sarah M.',
-        role: 'Clinical Psychiatrist',
+        role: 'Clinical Mental Health Expert',
         rating: 4.8,
         image: 'https://images.unsplash.com/photo-1544717305-2782549b5136?w=400&q=80',
-        credentials: 'Certified Professional',
-        expertise: ['Anxiety & Depression', 'Mindfulness'],
-        meta: '8+ years exp',
+        credentials: 'Certified Professional | 8+ years exp',
+        expertise: ['Anxiety & Depression support', 'Stress Management', 'Mindfulness-Based approaches'],
+        meta: 'Certified Professional',
         mobileDetails: {
-            credentials: 'Double Gold Medalist in Clinical Psychology',
-            expertise: ['Anxiety & Depression Treatment', 'Stress Management', 'Mindfulness-Based Therapy'],
+            credentials: 'Certified Professional',
+            expertise: ['Anxiety & Depression', 'Stress Management', 'Mindfulness'],
             meta: '8+ years of experience'
         }
     }

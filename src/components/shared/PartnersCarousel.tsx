@@ -149,6 +149,7 @@ const PartnersCarousel: React.FC = () => {
                 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
                 .fade-mask-x { mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); }
             `}} />
+
         </section>
     );
 };

@@ -56,7 +56,7 @@ const SpecializationsChallenges: React.FC = () => {
                         {SPECIALIZATIONS.map((item, idx) => (
                             <div
                                 key={idx}
-                                className="group relative h-[300px] rounded-[32px] overflow-hidden shadow-xl hover:-translate-y-2 transition-transform duration-500"
+                                className="group relative h-[300px] rounded-[32px] overflow-hidden hover:-translate-y-2 transition-transform duration-500"
                             >
                                 <img
                                     src={item.image}
@@ -80,7 +80,7 @@ const SpecializationsChallenges: React.FC = () => {
                             {SPECIALIZATIONS.map((item, idx) => (
                                 <div
                                     key={idx}
-                                    className="relative min-w-[85vw] h-[400px] snap-center rounded-[32px] overflow-hidden shadow-xl"
+                                    className="relative min-w-[85vw] h-[400px] snap-center rounded-[32px] overflow-hidden"
                                 >
                                     <img
                                         src={item.image}
@@ -103,7 +103,7 @@ const SpecializationsChallenges: React.FC = () => {
                                     const el = document.getElementById('specs-carousel');
                                     if (el) el.scrollBy({ left: -window.innerWidth * 0.7, behavior: 'smooth' });
                                 }}
-                                className="w-12 h-12 bg-white/90 backdrop-blur text-primary rounded-full shadow-lg flex items-center justify-center pointer-events-auto hover:scale-110 transition-transform active:scale-95"
+                                className="w-12 h-12 bg-white/90 backdrop-blur text-primary rounded-full flex items-center justify-center pointer-events-auto hover:scale-110 transition-transform active:scale-95"
                                 aria-label="Previous"
                             >
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
@@ -115,7 +115,7 @@ const SpecializationsChallenges: React.FC = () => {
                                     const el = document.getElementById('specs-carousel');
                                     if (el) el.scrollBy({ left: window.innerWidth * 0.7, behavior: 'smooth' });
                                 }}
-                                className="w-12 h-12 bg-white/90 backdrop-blur text-primary rounded-full shadow-lg flex items-center justify-center pointer-events-auto hover:scale-110 transition-transform active:scale-95"
+                                className="w-12 h-12 bg-white/90 backdrop-blur text-primary rounded-full flex items-center justify-center pointer-events-auto hover:scale-110 transition-transform active:scale-95"
                                 aria-label="Next"
                             >
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
@@ -131,12 +131,12 @@ const SpecializationsChallenges: React.FC = () => {
                     <h3 className="font-heading text-3xl font-bold text-vo-text-primary mb-8">Common Challenges We Help With</h3>
 
                     <div className={isExpanded
-                        ? "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-4 gap-x-8 text-left auto-rows-min"
-                        : "flex flex-col md:flex-row md:justify-center gap-x-8 gap-y-4 text-left"
+                        ? "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-4 gap-x-8 text-left auto-rows-min max-w-5xl mx-auto"
+                        : "flex flex-col md:flex-row md:justify-center gap-x-8 gap-y-4 text-left max-w-5xl mx-auto"
                     }>
                         {/* Always visible first 3 on mobile if needed, or just show all/subset */}
                         {(isExpanded ? COMMON_CHALLENGES : COMMON_CHALLENGES.slice(0, 3)).map((challenge, idx) => (
-                            <div key={idx} className="flex items-start gap-3 text-vo-text-secondary font-medium">
+                            <div key={idx} className="flex items-start gap-3 text-vo-text-secondary font-medium justify-center md:justify-start">
                                 <span className="text-primary mt-1">✓</span>
                                 {challenge}
                             </div>

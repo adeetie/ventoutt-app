@@ -8,48 +8,53 @@ gsap.registerPlugin(ScrollTrigger);
 const STACK_ITEMS = [
     {
         title: 'Relationship Building',
-        desc: 'Great relationships are built on trust, communication, and mutual respect. Taking the time to listen strengthens connections.',
+        desc: 'Great relationships are built on trust, communication, and mutual respect. Our professionals help you strengthen connections through guided conversations and proven strategies.',
         image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=800&q=80',
     },
     {
         title: 'Improved Mental Health',
-        desc: 'Prioritize rest, mindfulness, and supportive relationships for a healthier mind and self-care routine.',
+        desc: 'Prioritize rest, mindfulness, and supportive relationships for a healthier mind. We support your mental wellness at every stage—from venting to therapy.',
         image: 'https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=800&q=80',
     },
     {
         title: 'Emotional Support',
-        desc: 'Being present and listening without judgment goes a long way in offering comfort and kindness.',
+        desc: 'Being present and listening without judgment goes a long way. Whether you need someone to hear you out right now or ongoing guidance, we are here.',
         image: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80',
     },
     {
-        title: 'Counseling and Therapy',
-        desc: 'A safe space to heal, grow, and gain clarity. Seeking help is a step toward emotional well-being.',
+        title: 'Professional Guidance & Therapy',
+        desc: 'A safe space to heal, grow, and gain clarity. Get expert mental health support—from professional guidance to structured therapy.',
         image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80',
     },
     {
         title: 'Best Pricing',
-        desc: 'Affordable therapy options connecting you with experienced professionals worldwide.',
+        desc: 'Quality mental health support shouldn\'t cost a fortune. From $5 venting sessions to $35 professional guidance—get support at prices that make sense.',
         image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&q=80',
     },
     {
-        title: 'Community Support',
-        desc: 'Join a supportive community where you can share, listen, and grow together.',
+        title: '24 x 7 Connectivity',
+        desc: 'Message your assigned mental health professional at any time. Whether you need immediate venting or ongoing guidance, Ventoutt is here.',
         image: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&q=80',
     },
     {
-        title: 'Certified Therapists',
-        desc: "At Ventoutt, we're committed to connecting you with certified and experienced therapists who provide professional and compassionate mental health support.",
+        title: 'Certified Professionals',
+        desc: 'Access confirmed MA Psychology professionals supporting you globally. Trusted care tailored to your needs.',
         image: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=800&q=80',
     },
     {
-        title: 'Safe & Private Space',
-        desc: "At Ventoutt, your safety and privacy come first. Our platform is built to offer a secure space where you can express your thoughts and emotions freely.",
+        title: 'Data Privacy',
+        desc: 'Your privacy is our priority. All conversations are completely confidential, adhering to strict standards for global customers.',
         image: 'https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=800&q=80',
     },
     {
-        title: 'Personal Growth',
-        desc: 'Unlock your potential through guided self-discovery and professional support.',
+        title: 'Get Matched in 24 Hours',
+        desc: 'We connect you with certified mental health professionals within 24 hours globally across the USA, UK, and beyond.',
         image: 'https://images.unsplash.com/photo-1552581234-26160f608093?w=800&q=80',
+    },
+    {
+        title: 'Support for Young Adults',
+        desc: 'Ventoutt is a safe, supportive platform created especially for young adults (18-34) navigating life\'s challenges.',
+        image: 'https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=800&q=80',
     }
 ];
 
@@ -82,12 +87,12 @@ const StickyStack: React.FC = () => {
 
             const prevCard = cardsRef.current[index - 1];
 
-            // 1. Previous card scales down/darkens as new one enters
+            // 1. Previous card scales down/darkens as new one enters - UPDATED: Just scale, no dimming
             if (prevCard) {
                 // We add this to the timeline simultaneous with the incoming card
                 tl.to(prevCard, {
                     scale: 0.95,
-                    filter: 'brightness(0.9)',
+                    // filter: 'brightness(0.9)', // Removed for clean white stack
                     duration: 1,
                     ease: "power1.inOut"
                 }, ">-1"); // Overlap with previous
@@ -115,7 +120,7 @@ const StickyStack: React.FC = () => {
             if (prevCard) {
                 tl.to(prevCard, {
                     scale: 0.95,
-                    opacity: 0.5, // Optional fade to mimic depth
+                    // opacity: 0.5, // Removed to keep pure white
                     // y: '-5vh', // Optional push up
                     duration: 1,
                     ease: "power2.out"
@@ -129,7 +134,7 @@ const StickyStack: React.FC = () => {
                 if (prevPrevCard) {
                     tl.to(prevPrevCard, {
                         scale: 0.9,
-                        opacity: 0, // Fully hide the ones deep in stack?
+                        // opacity: 0, // Removed to keep functional stack visibility
                         duration: 1
                     }, `card${index}`);
                 }
@@ -139,7 +144,7 @@ const StickyStack: React.FC = () => {
     }, { scope: containerRef });
 
     return (
-        <section ref={containerRef} className="h-screen w-full bg-vo-secondary-pale flex flex-col justify-center items-center overflow-hidden relative">
+        <section ref={containerRef} className="h-screen w-full bg-white flex flex-col justify-center items-center overflow-hidden relative">
 
             {/* Main Heading */}
             <div className="absolute top-8 md:top-12 z-50 text-center w-full px-4">
@@ -149,7 +154,7 @@ const StickyStack: React.FC = () => {
             </div>
 
             {/* Stack Container */}
-            <div className="relative w-[90%] max-w-[1000px] h-[60vh] min-h-[500px] mt-20">
+            <div className="relative w-[90%] max-w-[1000px] h-[60vh] min-h-[500px] mt-28">
                 {STACK_ITEMS.map((item, idx) => (
                     <div
                         key={idx}
@@ -162,7 +167,7 @@ const StickyStack: React.FC = () => {
                         }}
                     >
                         {/* Visual Card */}
-                        <div className="w-full h-full bg-white rounded-[32px] border border-black/5 overflow-hidden flex flex-col lg:flex-row shadow-2xl origin-bottom">
+                        <div className="w-full h-full bg-white rounded-[32px] border border-black/5 overflow-hidden flex flex-col lg:flex-row origin-bottom">
                             {/* Content */}
                             <div className="flex-1 p-8 lg:p-12 flex flex-col justify-center space-y-6 order-2 lg:order-1">
                                 <h3 className="font-heading text-2xl sm:text-4xl font-bold text-vo-black leading-tight">

@@ -21,10 +21,12 @@ const FAQ: React.FC<FAQProps> = ({
     return (
         <section className={`py-24 px-[5%] bg-vo-white ${className}`}>
             <div className="max-w-[800px] mx-auto space-y-12">
-                <div className="text-center space-y-4">
-                    <h2 className="font-heading text-4xl font-bold text-vo-text-primary italic">{title}</h2>
-                    {description && <p className="font-body text-vo-text-secondary max-w-2xl mx-auto">{description}</p>}
-                </div>
+                {title && (
+                    <div className="text-left space-y-4">
+                        <h2 className="font-heading text-4xl font-bold text-vo-text-primary italic">{title}</h2>
+                        {description && <p className="font-body text-vo-text-secondary max-w-2xl">{description}</p>}
+                    </div>
+                )}
                 <div className="space-y-4">
                     {items.map((item, idx) => (
                         <details
@@ -33,14 +35,7 @@ const FAQ: React.FC<FAQProps> = ({
                             style={{
                                 background: 'rgba(255, 255, 255, 0.7)',
                                 backdropFilter: 'blur(20px)',
-                                border: '1px solid rgba(255, 255, 255, 0.8)',
-                                boxShadow: '0 4px 15px rgba(0, 0, 0, 0.06)'
-                            }}
-                            onMouseEnter={(e) => {
-                                e.currentTarget.style.boxShadow = '0 10px 25px rgba(0, 0, 0, 0.1)';
-                            }}
-                            onMouseLeave={(e) => {
-                                e.currentTarget.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.06)';
+                                border: '1px solid rgba(255, 255, 255, 0.8)'
                             }}
                         >
                             <summary className="flex items-center justify-between p-6 cursor-pointer font-heading font-bold text-vo-text-primary hover:bg-vo-bg transition-colors list-none [&::-webkit-details-marker]:hidden">

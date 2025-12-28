@@ -89,7 +89,7 @@ const Footer: React.FC = () => {
             </section>
 
             {/* Global Footer */}
-            <footer className="footer-main bg-[#212121] pt-20 px-[5%] pb-10 text-white relative border-t-4 border-theme-accent transition-colors duration-500">
+            <footer className="footer-main bg-[#212121] pt-20 px-[5%] pb-10 text-white relative border-theme-accent transition-colors duration-500">
                 <div className="max-w-[1400px] mx-auto mb-16 border-b border-white/10 pb-10 flex flex-wrap justify-between gap-10">
                     {/* Col 1: Logo & Social */}
                     <div className="footer-col flex-[1.2] min-w-[250px] flex flex-col items-start gap-5">
