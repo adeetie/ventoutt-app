@@ -52,7 +52,7 @@ const RealExperts: React.FC = () => {
     }, { scope: sectionRef });
 
     return (
-        <section ref={sectionRef} className="vo-real-experts py-32 bg-[#1a1a1a] overflow-hidden text-white">
+        <section ref={sectionRef} className="vo-real-experts py-16 bg-[#1a1a1a] overflow-hidden text-white">
             <div className="max-w-[1240px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
                 {/* Content Side */}

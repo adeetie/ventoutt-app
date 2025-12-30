@@ -106,7 +106,7 @@ const DesktopExpertCard: React.FC<{ expert: any }> = ({ expert }) => {
 
             {/* Info Box */}
             <div
-                className="absolute bottom-4 left-4 right-4 p-5 rounded-[16px] z-[3] transition-all duration-400 group-hover:bottom-0 group-hover:left-0 group-hover:right-0 group-hover:rounded-none group-hover:pb-[30px] group-hover:translate-y-0"
+                className="absolute bottom-4 left-4 right-4 p-5 rounded-[16px] z-[3] transition-all duration-400 group-hover:bottom-0 group-hover:left-0 group-hover:right-0 group-hover:rounded-t-[20px] group-hover:rounded-b-none group-hover:pb-[30px] group-hover:translate-y-0"
                 style={{
                     background: 'rgba(255, 255, 255, 0.95)',
                     backdropFilter: 'blur(15px)',

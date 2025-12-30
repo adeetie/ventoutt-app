@@ -33,16 +33,16 @@ const ImageCarousel: React.FC = () => {
     }, { scope: containerRef });
 
     return (
-        <section ref={containerRef} className="py-20 bg-white overflow-hidden">
+        <section ref={containerRef} className="py-12 bg-[#F4EDE4] overflow-hidden">
             <div className="w-full">
                 <div
                     ref={trackRef}
-                    className="flex gap-8 w-max pl-4"
+                    className="flex gap-6 w-max pl-4 items-center"
                 >
                     {items.map((item, index) => (
                         <div
                             key={index}
-                            className={`relative w-[280px] h-[280px] md:w-[400px] md:h-[400px] aspect-square flex-shrink-0 group cursor-pointer overflow-hidden ${item.shape}`}
+                            className={`relative w-[140px] h-[140px] md:w-[200px] md:h-[200px] shrink-0 group cursor-pointer overflow-hidden ${item.shape}`}
                         >
                             <img
                                 src={item.src}
@@ -52,10 +52,10 @@ const ImageCarousel: React.FC = () => {
                             {/* Overlay */}
                             <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                                 <div className="text-center">
-                                    <div className="w-12 h-12 mx-auto bg-white rounded-full flex items-center justify-center mb-2">
-                                        <span className="text-xl text-black">↗</span>
+                                    <div className="w-8 h-8 mx-auto bg-white rounded-full flex items-center justify-center mb-1">
+                                        <span className="text-sm text-black">↗</span>
                                     </div>
-                                    <span className="text-white font-bold text-xl tracking-wide">{item.text}</span>
+                                    <span className="text-white font-bold text-sm tracking-wide">{item.text}</span>
                                 </div>
                             </div>
                         </div>

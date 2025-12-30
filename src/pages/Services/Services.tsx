@@ -2,14 +2,16 @@ import React from 'react';
 import ServicesHero from './components/ServicesHero';
 import DetailedServicesSection from './components/DetailedServicesSection';
 import MobileServicesStack from './components/MobileServicesStack';
-import ServiceCarousel from '../Home/components/ServiceCarousel';
 import ExpertsGrid from '../Home/components/ExpertsGrid';
+import RealExperts from '../Home/components/RealExperts';
+import FitSection from '../Home/components/FitSection';
 import FAQ from '../../components/shared/FAQ';
 import RelatedBlogs from '../../components/shared/RelatedBlogs';
 import SpecializationsChallenges from '../../components/shared/SpecializationsChallenges';
-import FindYourRightFit from '../Home/components/FitSection';
-import StatsTestimonialsSection from '../Home/components/StatsTestimonialsSection'; // Reused from Home
+import StatsTestimonialsSection from '../Home/components/StatsTestimonialsSection';
 import HowItWorks from '../../components/shared/HowItWorks';
+import PartnersCarousel from '../../components/shared/PartnersCarousel';
+import WhyLoveSection from '../Therapy/components/WhyLoveSection';
 
 const SERVICES_FAQ = [
     {
@@ -38,42 +40,75 @@ const SERVICES_STEPS = [
     { num: "05", desc: "Get ongoing support and resources to keep growing.", color: "#5D5D5D" }
 ];
 
+const WHY_CHOOSE_POINTS = [
+    { title: "Affordable Excellence", desc: "Quality mental health support at $35/session—not $200. Accessible care for students and young professionals.", image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&q=80" },
+    { title: "Globally Available 24/7", desc: "Support when you need it, wherever you are. Our professionals are available around the clock.", image: "https://images.unsplash.com/photo-1516302752625-fcc3c50ae61f?w=800&q=80" },
+    { title: "Instant Matching", desc: "Get paired with the right professional in minutes, not weeks. AI-powered matching for the best fit.", image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=800&q=80" },
+    { title: "Flexible Sessions", desc: "Text, audio, or video—your choice. Schedule or connect instantly based on your comfort.", image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80" },
+    { title: "Private & Secure", desc: "Complete anonymity and confidentiality. Your conversations are encrypted and protected.", image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80" }
+];
+
 const Services: React.FC = () => {
     return (
         <div className="vo-services-page">
+            {/* 1. Hero */}
             <ServicesHero />
 
-            {/* Section 2: Testimonials (Shared from Home) */}
-            <div className="bg-white">
-                <StatsTestimonialsSection
-                    showStats={false}
-                    title="What Our Users Say"
-                    subtitle=""
-                />
+            {/* 2. Services Section (with title) */}
+            <div className="bg-white py-16">
+                <div className="max-w-[1400px] mx-auto px-[5%]">
+                    <div className="text-center mb-12">
+                        <h2 className="font-heading text-4xl lg:text-5xl font-bold text-[#2D2D2D] italic mb-4">
+                            Our Services
+                        </h2>
+                        <p className="font-body text-lg text-gray-500 max-w-2xl mx-auto">
+                            Choose the right support for your journey—from immediate emotional relief to professional guidance.
+                        </p>
+                    </div>
+                </div>
             </div>
-
             <DetailedServicesSection />
             <MobileServicesStack />
 
-            <ServiceCarousel />
-            <FindYourRightFit />
+            {/* 3. Testimonials */}
+            <StatsTestimonialsSection
+                showStats={false}
+                title="What Our Users Say"
+                subtitle=""
+            />
+
+            {/* 4. Why Choose Us (with WhyLove visual style) */}
+            <WhyLoveSection
+                title="Why Choose Ventoutt"
+                points={WHY_CHOOSE_POINTS}
+            />
+
+            {/* 5. Caring & Expert Members */}
             <ExpertsGrid />
 
+            {/* 6. Fit Section */}
+            <FitSection />
+
+            {/* 7. Real Experts */}
+            <RealExperts />
+
+            {/* 8. How It Works */}
             <HowItWorks title="How It Works" steps={SERVICES_STEPS} />
 
-            <RelatedBlogs />
-            <SpecializationsChallenges />
+            {/* 9. Partners */}
+            <PartnersCarousel />
 
-            <div className="bg-white py-20 px-[5%] relative overflow-hidden">
-                <div className="max-w-[800px] mx-auto relative z-10">
-                    <h2 className="text-3xl lg:text-4xl font-heading font-bold text-center mb-12 text-[#2D2D2D]">
-                        Frequently Asked Questions
-                    </h2>
-                    <FAQ items={SERVICES_FAQ} />
-                </div>
-            </div>
+            {/* 10. Blogs */}
+            <RelatedBlogs />
+
+            {/* 11. FAQ */}
+            <FAQ items={SERVICES_FAQ} />
+
+            {/* 12. Challenges and Specialisation */}
+            <SpecializationsChallenges />
         </div>
     );
 };
 
 export default Services;
+

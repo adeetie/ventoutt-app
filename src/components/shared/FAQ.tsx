@@ -22,9 +22,9 @@ const FAQ: React.FC<FAQProps> = ({
         <section className={`py-24 px-[5%] bg-[#F5F5F5] ${className}`}>
             <div className="max-w-[800px] mx-auto space-y-12">
                 {title && (
-                    <div className="text-left space-y-4">
+                    <div className="text-center space-y-4">
                         <h2 className="font-heading text-4xl font-bold text-vo-text-primary italic">{title}</h2>
-                        {description && <p className="font-body text-vo-text-secondary max-w-2xl">{description}</p>}
+                        {description && <p className="font-body text-vo-text-secondary max-w-2xl mx-auto">{description}</p>}
                     </div>
                 )}
                 <div className="space-y-4">

@@ -83,8 +83,8 @@ const PartnersCarousel: React.FC = () => {
     }, { scope: undefined });
 
     return (
-        <section className="py-24 px-[5%] bg-[#1a1a1a] text-white overflow-hidden relative">
-            <div className="max-w-[1400px] mx-auto space-y-20">
+        <section className="py-12 px-[5%] bg-[#1a1a1a] text-white overflow-hidden relative">
+            <div className="max-w-[1400px] mx-auto space-y-6">
 
                 {/* TOP SECTION: Split Layout */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
@@ -114,7 +114,7 @@ const PartnersCarousel: React.FC = () => {
                 </div>
 
                 {/* BOTTOM SECTION: Therapist Cards Carousel (Loop Left) */}
-                <div className="mt-16 overflow-hidden -mx-[5%] px-[5%]">
+                <div className="mt-4 overflow-hidden -mx-[5%] px-[5%]">
                     <div ref={therapistRef} className="flex gap-8 w-max py-8">
                         {[...THERAPISTS, ...THERAPISTS, ...THERAPISTS].map((expert, idx) => (
                             <div key={idx} className="w-[300px] sm:w-[350px] bg-white rounded-[24px] p-6 text-vo-black flex flex-col items-center text-center hover:translate-y-[-8px] transition-transform duration-300 border-[3px] border-transparent hover:border-orange-100 shadow-xl relative group shrink-0">

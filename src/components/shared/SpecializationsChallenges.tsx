@@ -38,7 +38,7 @@ const SpecializationsChallenges: React.FC = () => {
     const [isExpanded, setIsExpanded] = useState(false);
 
     return (
-        <section className="py-16 px-[5%] bg-[#faf7f2] relative overflow-hidden">
+        <section className="py-16 px-[5%] bg-[#F5F5F5] relative overflow-hidden">
             <div className="max-w-[1200px] mx-auto relative z-10">
 
                 {/* Specializations Grid */}
