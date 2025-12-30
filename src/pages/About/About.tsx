@@ -12,7 +12,7 @@ import TestimonialSlider from './components/TestimonialSlider';
 import FAQ from '../../components/shared/FAQ';
 
 // Hook for scroll-based background changes
-import useScrollBackground from '../../hooks/useScrollBackground';
+import { useScrollBackground } from '../../hooks/useScrollBackground';
 
 gsap.registerPlugin(useGSAP);
 
@@ -20,42 +20,42 @@ const About: React.FC = () => {
     const containerRef = useRef<HTMLDivElement>(null);
 
     // Enable scroll-triggered background color changes
-    useScrollBackground(containerRef);
+    useScrollBackground();
 
     return (
-        <div ref={containerRef} className="vo-about pt-[100px]">
-            {/* 1. Hero Section - Light beige background */}
-            <div data-bg="#F4EDE4">
+        <div ref={containerRef} className="vo-about pt-[100px] transition-colors duration-500">
+            {/* 1. Hero Section - Light beige background -> Default Home Hero BG */}
+            <div className="bg-[#fffdf7] relative z-20" data-bg="#fffdf7">
                 <AboutHero />
             </div>
 
-            {/* 2. Infinite Image Carousel - Same as hero */}
-            <div data-bg="#F4EDE4">
+            {/* 2. Infinite Image Carousel - Same as hero (Part of Hero) */}
+            <div className="bg-[#fffdf7] rounded-b-[60px] overflow-hidden relative z-20" data-bg="#fffdf7">
                 <ImageCarousel />
             </div>
 
-            {/* 3. Empower Section */}
-            <div data-bg="#ffffff">
+            {/* 3. Empower Section - White (Overlaps with Carousel for rounded effect) */}
+            <div className="bg-white relative z-10 -mt-[60px] pt-[140px]" data-bg="#FFFFFF">
                 <Empower />
             </div>
 
-            {/* 4. Mission & Values (Dark theme with Bento Grid) */}
-            <div data-bg="#1a1a1a">
+            {/* 4. Mission & Values - Dark Exception */}
+            <div className="bg-[#1a1a1a]" data-bg="#1a1a1a">
                 <MissionValues />
             </div>
 
-            {/* 5. Founders Section (Desktop Grid / Mobile Sticky Stack) */}
-            <div data-bg="#ffffff">
+            {/* 5. Founders Section - Grey */}
+            <div className="bg-[#F5F5F5]" data-bg="#F5F5F5">
                 <Founders />
             </div>
 
-            {/* 6. Testimonials Slider */}
-            <div data-bg="#F5F5F5">
+            {/* 6. Testimonials Slider - Hero Color */}
+            <div className="bg-[#fffdf7]" data-bg="#fffdf7">
                 <TestimonialSlider />
             </div>
 
-            {/* 7. FAQ Section */}
-            <div data-bg="#F5F5F5">
+            {/* 7. FAQ Section - Dark Exception -> Changed to Grey */}
+            <div className="bg-[#F5F5F5]" data-bg="#F5F5F5">
                 <FAQ
                     items={[
                         {

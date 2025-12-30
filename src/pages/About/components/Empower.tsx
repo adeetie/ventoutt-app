@@ -2,7 +2,7 @@ import React from 'react';
 
 const Empower: React.FC = () => {
     return (
-        <section className="relative w-full py-24 bg-vo-secondary-pale">
+        <section className="relative w-full py-24">
             <div className="max-w-[1300px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
                 {/* Left Column: Large Vertical Image */}
@@ -18,9 +18,7 @@ const Empower: React.FC = () => {
                 <div className="flex flex-col gap-10">
                     {/* Text Content */}
                     <div className="flex flex-col items-start text-left">
-                        <span className="bg-[#E68638] text-white px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-6">
-                            About us
-                        </span>
+
                         <h2 className="font-serif italic text-5xl md:text-6xl text-vo-black mb-6 font-medium leading-tight">
                             Empowering mental well being
                         </h2>

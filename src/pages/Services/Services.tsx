@@ -12,6 +12,7 @@ import StatsTestimonialsSection from '../Home/components/StatsTestimonialsSectio
 import HowItWorks from '../../components/shared/HowItWorks';
 import PartnersCarousel from '../../components/shared/PartnersCarousel';
 import WhyLoveSection from '../Therapy/components/WhyLoveSection';
+import { useScrollBackground } from '../../hooks/useScrollBackground';
 
 const SERVICES_FAQ = [
     {
@@ -49,13 +50,16 @@ const WHY_CHOOSE_POINTS = [
 ];
 
 const Services: React.FC = () => {
+    useScrollBackground();
     return (
         <div className="vo-services-page">
             {/* 1. Hero */}
-            <ServicesHero />
+            <div className="bg-[#fffdf7]" data-bg="#fffdf7">
+                <ServicesHero />
+            </div>
 
             {/* 2. Services Section (with title) */}
-            <div className="bg-white py-16">
+            <div className="bg-white py-16" data-bg="#FFFFFF">
                 <div className="max-w-[1400px] mx-auto px-[5%]">
                     <div className="text-center mb-12">
                         <h2 className="font-heading text-4xl lg:text-5xl font-bold text-[#2D2D2D] italic mb-4">
@@ -67,45 +71,70 @@ const Services: React.FC = () => {
                     </div>
                 </div>
             </div>
-            <DetailedServicesSection />
-            <MobileServicesStack />
+
+            <div className="bg-white" data-bg="#FFFFFF">
+                <DetailedServicesSection />
+            </div>
+            <div className="bg-white" data-bg="#FFFFFF">
+                <MobileServicesStack />
+            </div>
 
             {/* 3. Testimonials */}
-            <StatsTestimonialsSection
-                showStats={false}
-                title="What Our Users Say"
-                subtitle=""
-            />
+            <div className="bg-[#fffdf7]" data-bg="#fffdf7">
+                <StatsTestimonialsSection
+                    showStats={false}
+                    title="What Our Users Say"
+                    subtitle=""
+                />
+            </div>
 
-            {/* 4. Why Choose Us (with WhyLove visual style) */}
-            <WhyLoveSection
-                title="Why Choose Ventoutt"
-                points={WHY_CHOOSE_POINTS}
-            />
+            {/* 4. Why Choose Us (White) */}
+            <div className="bg-white" data-bg="#FFFFFF">
+                <WhyLoveSection
+                    title="Why Choose Ventoutt"
+                    points={WHY_CHOOSE_POINTS}
+                />
+            </div>
 
-            {/* 5. Caring & Expert Members */}
-            <ExpertsGrid />
+            {/* 5. Caring & Expert Members (Grey) */}
+            <div className="bg-[#F5F5F5]" data-bg="#F5F5F5">
+                <ExpertsGrid />
+            </div>
 
-            {/* 6. Fit Section */}
-            <FitSection />
+            {/* 6. Fit Section (White) */}
+            <div className="bg-white" data-bg="#FFFFFF">
+                <FitSection />
+            </div>
 
-            {/* 7. Real Experts */}
-            <RealExperts />
+            {/* 7. Real Experts (Dark) */}
+            <div className="bg-[#1a1a1a]" data-bg="#1a1a1a">
+                <RealExperts />
+            </div>
 
-            {/* 8. How It Works */}
-            <HowItWorks title="How It Works" steps={SERVICES_STEPS} />
+            {/* 8. How It Works (Hero) */}
+            <div className="bg-[#fffdf7]" data-bg="#fffdf7">
+                <HowItWorks title="How It Works" steps={SERVICES_STEPS} />
+            </div>
 
-            {/* 9. Partners */}
-            <PartnersCarousel />
+            {/* 9. Partners (Dark) */}
+            <div className="bg-[#1a1a1a]" data-bg="#1a1a1a">
+                <PartnersCarousel />
+            </div>
 
-            {/* 10. Blogs */}
-            <RelatedBlogs />
+            {/* 10. Blogs (White) */}
+            <div className="bg-white" data-bg="#FFFFFF">
+                <RelatedBlogs />
+            </div>
 
-            {/* 11. FAQ */}
-            <FAQ items={SERVICES_FAQ} />
+            {/* 11. FAQ (Grey) */}
+            <div className="bg-[#F5F5F5]" data-bg="#F5F5F5">
+                <FAQ items={SERVICES_FAQ} />
+            </div>
 
-            {/* 12. Challenges and Specialisation */}
-            <SpecializationsChallenges />
+            {/* 12. Challenges (Hero) */}
+            <div className="bg-[#fffdf7]" data-bg="#fffdf7">
+                <SpecializationsChallenges />
+            </div>
         </div>
     );
 };

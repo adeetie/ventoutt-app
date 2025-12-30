@@ -11,44 +11,46 @@ const CARDS = [
         desc: "Safe space for all.",
         mobileDesc: "Creating a safe, judgment-free space for everyone.",
         image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=800&q=80",
-        span: "col-span-2 row-span-2" // Large
+        span: "col-span-2 row-span-2" // Large Block (Left Top)
     },
     {
         title: "Our Vision",
         desc: "A brighter future.",
         mobileDesc: "A world where mental wellness is accessible to all.",
         image: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=800&q=80",
-        span: "col-span-1 row-span-1" // Small
+        span: "col-span-1 row-span-1" // Right Top
     },
     {
         title: "Privacy",
         desc: "100% Anonymous.",
         mobileDesc: "100% anonymous interactions guaranteed.",
         image: "https://images.unsplash.com/photo-1505330622279-bf7d7fc918f4?w=800&q=80",
-        span: "col-span-1 row-span-1" // Small
+        span: "col-span-1 row-span-1" // Right Middle
     },
     {
         title: "Inclusivity",
         desc: "You belong here.",
         mobileDesc: "Everyone belongs here, regardless of background.",
         image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80",
-        span: "col-span-1 row-span-2" // Tall
+        span: "col-span-1 row-span-1" // Bottom Left
     },
     {
         title: "Community",
         desc: "Heal together.",
         mobileDesc: "Healing together in a supportive environment.",
         image: "https://images.unsplash.com/photo-1531545514256-b1400bc00f31?w=800&q=80",
-        span: "col-span-1 row-span-1" // Small
+        span: "col-span-1 row-span-1" // Bottom Center
     },
     {
         title: "Accessibility",
         desc: "Support for everyone.",
         mobileDesc: "Affordable support for everyone.",
         image: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&q=80",
-        span: "col-span-1 row-span-1" // Small
+        span: "col-span-1 row-span-1" // Bottom Right
     }
 ];
+
+
 
 const MissionValues: React.FC = () => {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -100,7 +102,7 @@ const MissionValues: React.FC = () => {
     }, { scope: containerRef });
 
     return (
-        <section ref={containerRef} className="bg-[#1a1a1a] text-white py-24 overflow-hidden">
+        <section ref={containerRef} className="text-white py-24 overflow-hidden">
             <div className="max-w-[1300px] mx-auto px-6">
                 <div className="mb-0 md:bg-transparent relative z-10">
                     <div className="text-center md:text-left mb-16">
@@ -114,7 +116,7 @@ const MissionValues: React.FC = () => {
             </div>
 
             {/* DESKTOP: Bento Grid */}
-            <div className="hidden lg:grid grid-cols-4 gap-6 max-w-[1300px] mx-auto px-6 auto-rows-[240px]">
+            <div className="hidden lg:grid grid-cols-3 gap-6 max-w-[1300px] mx-auto px-6 auto-rows-[280px]">
                 {CARDS.map((card, index) => (
                     <div
                         key={index}
@@ -123,12 +125,15 @@ const MissionValues: React.FC = () => {
                         <img
                             src={card.image}
                             alt={card.title}
-                            className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700"
+                            className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
-                        <div className="absolute inset-0 p-8 flex flex-col justify-end items-start border border-white/10 rounded-[32px]">
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                        <div className="absolute inset-0 p-8 flex flex-col justify-end items-start">
                             <h3 className="text-3xl font-serif mb-2 text-white relative z-10">{card.title}</h3>
                             <p className="text-gray-300 text-base leading-relaxed relative z-10">{card.desc}</p>
+                            <div className="w-10 h-10 mt-4 bg-white/10 rounded-full flex items-center justify-center backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-4 group-hover:translate-y-0">
+                                <span className="text-white text-lg">↗</span>
+                            </div>
                         </div>
                     </div>
                 ))}

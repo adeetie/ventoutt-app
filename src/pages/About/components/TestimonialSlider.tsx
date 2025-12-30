@@ -61,7 +61,7 @@ const TestimonialSlider: React.FC = () => {
     const currentTestimonial = TESTIMONIALS[currentIndex];
 
     return (
-        <section className="relative w-full py-0 md:py-20 lg:py-24 bg-white overflow-hidden">
+        <section className="relative w-full py-0 md:py-20 lg:py-24 overflow-hidden">
             <div className="max-w-[1400px] mx-auto relative h-[400px] md:h-[500px] rounded-[32px] overflow-hidden shadow-2xl mx-4 lg:mx-auto">
 
                 {/* Background Image Layer */}

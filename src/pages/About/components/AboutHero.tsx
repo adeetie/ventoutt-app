@@ -40,7 +40,7 @@ const AboutHero: React.FC = () => {
 
     return (
         <section
-            className="bg-[#F4EDE4] pt-[140px] pb-20 px-[60px] md:px-5 relative z-[1] overflow-hidden"
+            className="pt-[140px] pb-20 px-[60px] md:px-5 relative z-[1] overflow-hidden"
             style={{ fontFamily: 'var(--font-body)', color: 'var(--vo-color-charcoal)' }}
         >
             <div className="max-w-[1400px] mx-auto relative z-20">

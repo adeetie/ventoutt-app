@@ -16,6 +16,7 @@ import SpecializationsChallenges from '../../components/shared/SpecializationsCh
 import FAQ from '../../components/shared/FAQ';
 import PartnersCarousel from '../../components/shared/PartnersCarousel';
 import RelatedBlogs from '../../components/shared/RelatedBlogs';
+import { useScrollBackground } from '../../hooks/useScrollBackground';
 
 const FAQ_ITEMS = [
     {
@@ -41,54 +42,73 @@ const FAQ_ITEMS = [
 ];
 
 const Home = () => {
+    useScrollBackground();
     return (
         <main className="vo-home">
             {/* 1. Hero */}
-            <div className="bg-[#fffdf7]">
+            <div className="bg-[#fffdf7]" data-bg="#fffdf7">
                 <HeroTransition />
             </div>
 
             {/* 2. Gallery */}
-            <div className="bg-white">
+            <div className="bg-white" data-bg="#FFFFFF">
                 <ExpandingGallery />
             </div>
 
             {/* 3. Guidance (Yellow Card Section) */}
-            <GuidanceVsTherapy />
+            <div className="bg-[#F5F5F5]" data-bg="#F5F5F5">
+                <GuidanceVsTherapy />
+            </div>
 
             {/* 4. Stats */}
-            <div className="bg-white">
+            <div className="bg-white" data-bg="#FFFFFF">
                 <StatsTestimonialsSection />
             </div>
 
             {/* 5. Real Experts (Charcoal) */}
-            <RealExperts />
+            <div className="bg-[#1a1a1a]" data-bg="#1a1a1a">
+                <RealExperts />
+            </div>
 
             {/* 6. Sticky Stack */}
-            <div className="bg-[#fffdf7]">
+            <div className="bg-[#fffdf7]" data-bg="#fffdf7">
                 <StickyStack />
             </div>
 
-            {/* 7. Experts Grid (Beige) */}
-            <ExpertsGrid />
+            {/* 7. Experts Grid (Grey) */}
+            <div className="bg-[#F5F5F5]" data-bg="#F5F5F5">
+                <ExpertsGrid />
+            </div>
 
             {/* 8. Fit Section */}
-            <FitSection />
+            <div className="bg-white" data-bg="#FFFFFF">
+                <FitSection />
+            </div>
 
-            {/* 9. How It Works (Beige - from component) */}
-            <HowItWorks />
+            {/* 9. How It Works (Hero) */}
+            <div className="bg-[#fffdf7]" data-bg="#fffdf7">
+                <HowItWorks />
+            </div>
 
-            {/* 10. Partners (Charcoal - from component) */}
-            <PartnersCarousel />
+            {/* 10. Partners (Charcoal) */}
+            <div className="bg-[#1a1a1a]" data-bg="#1a1a1a">
+                <PartnersCarousel />
+            </div>
 
-            {/* 11. Related Blogs (Beige - from component) */}
-            <RelatedBlogs />
+            {/* 11. Related Blogs (White) */}
+            <div className="bg-white" data-bg="#FFFFFF">
+                <RelatedBlogs />
+            </div>
 
-            {/* 12. FAQ (White - from component) */}
-            <FAQ items={FAQ_ITEMS} />
+            {/* 12. FAQ (Grey) */}
+            <div className="bg-[#F5F5F5]" data-bg="#F5F5F5">
+                <FAQ items={FAQ_ITEMS} />
+            </div>
 
-            {/* 13. Specializations (Beige - from component) */}
-            <SpecializationsChallenges />
+            {/* 13. Specializations (Hero) */}
+            <div className="bg-[#fffdf7]" data-bg="#fffdf7">
+                <SpecializationsChallenges />
+            </div>
         </main>
     );
 };

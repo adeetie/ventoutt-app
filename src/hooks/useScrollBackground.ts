@@ -1,71 +1,44 @@
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-/**
- * Hook to smoothly change the body background color based on scroll position.
- * Each section should have a data-bg attribute with the target background color.
- * 
- * Usage:
- * 1. Add data-bg="<color>" to your section elements
- * 2. Call useScrollBackground() in your page component
- * 
- * Example:
- * <section data-bg="#F4EDE4">Hero</section>
- * <section data-bg="#1a1a1a">Dark Section</section>
- */
-export const useScrollBackground = (containerRef: React.RefObject<HTMLElement>) => {
+export const useScrollBackground = () => {
     useEffect(() => {
-        if (!containerRef.current) return;
+        // Find all sections with data-bg attribute
+        const sections = gsap.utils.toArray<HTMLElement>('[data-bg]');
 
-        const sections = containerRef.current.querySelectorAll('[data-bg]');
         if (sections.length === 0) return;
 
-        // Set initial background
-        const firstBg = sections[0].getAttribute('data-bg');
-        if (firstBg) {
-            gsap.set(document.body, { backgroundColor: firstBg });
+        // Set initial body background to the first section's color
+        const firstColor = sections[0].getAttribute('data-bg');
+        if (firstColor) {
+            gsap.set(document.body, { backgroundColor: firstColor });
         }
 
-        // Create ScrollTrigger for each section
         const triggers: ScrollTrigger[] = [];
 
         sections.forEach((section) => {
-            const bgColor = section.getAttribute('data-bg');
-            if (!bgColor) return;
+            const color = section.getAttribute('data-bg');
+            if (!color) return;
 
+            // Create ScrollTrigger for each section
             const trigger = ScrollTrigger.create({
                 trigger: section,
-                start: 'top 50%',
-                end: 'bottom 50%',
-                onEnter: () => {
-                    gsap.to(document.body, {
-                        backgroundColor: bgColor,
-                        duration: 0.5,
-                        ease: 'power2.out'
-                    });
-                },
-                onEnterBack: () => {
-                    gsap.to(document.body, {
-                        backgroundColor: bgColor,
-                        duration: 0.5,
-                        ease: 'power2.out'
-                    });
-                }
+                start: 'top 55%', // Trigger when top of section passes middle-ish of viewport
+                end: 'bottom 55%',
+                onEnter: () => gsap.to(document.body, { backgroundColor: color, duration: 0.6, overwrite: 'auto' }),
+                onEnterBack: () => gsap.to(document.body, { backgroundColor: color, duration: 0.6, overwrite: 'auto' }),
+                // markers: true // Uncomment for debugging
             });
-
             triggers.push(trigger);
         });
 
-        // Cleanup
         return () => {
-            triggers.forEach(trigger => trigger.kill());
-            // Reset body background on unmount
+            triggers.forEach(t => t.kill());
+            // Reset background on unmount
             gsap.set(document.body, { backgroundColor: '' });
         };
-    }, [containerRef]);
+    }, []);
 };
-
-export default useScrollBackground;

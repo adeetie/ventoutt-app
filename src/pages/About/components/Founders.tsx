@@ -8,7 +8,7 @@ const FOUNDERS = [
 
 const Founders: React.FC = () => {
     return (
-        <section className="relative w-full py-24 bg-vo-secondary-pale">
+        <section className="relative w-full py-24">
             <div className="max-w-[1300px] mx-auto px-6">
 
                 {/* Desktop Grid (Visible lg+) */}
