@@ -81,7 +81,7 @@ const HeroTransition: React.FC = () => {
     }, { scope: containerRef });
 
     return (
-        <section ref={containerRef} className="hero-transition-section w-full bg-[#fffdf7] relative overflow-hidden flex flex-col pt-32 lg:pt-40 pb-20 px-[5%] min-h-screen">
+        <section ref={containerRef} className="hero-transition-section w-full relative overflow-hidden flex flex-col pt-32 lg:pt-40 pb-20 px-[5%] min-h-screen">
 
             {/* --- HEADER --- */}
             <div className="w-full max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-32 mb-12 lg:mb-16 items-start">
@@ -158,6 +158,7 @@ const HeroTransition: React.FC = () => {
                     animation: marquee-content 20s linear infinite;
                 }
             `}</style>
+
         </section>
     );
 };

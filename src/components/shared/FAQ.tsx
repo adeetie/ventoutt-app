@@ -19,7 +19,7 @@ const FAQ: React.FC<FAQProps> = ({
     className = ""
 }) => {
     return (
-        <section className={`py-24 px-[5%] bg-vo-white ${className}`}>
+        <section className={`py-24 px-[5%] bg-[#F5F5F5] ${className}`}>
             <div className="max-w-[800px] mx-auto space-y-12">
                 {title && (
                     <div className="text-left space-y-4">

@@ -49,8 +49,8 @@ const RelatedBlogs: React.FC<RelatedBlogsProps> = ({
     };
 
     return (
-        <section className="py-24 px-[5%] bg-vo-white relative">
-            <div className="max-w-[1400px] mx-auto">
+        <section className="py-24 px-[5%] bg-white relative overflow-hidden">
+            <div className="max-w-[1400px] mx-auto relative z-10">
                 {/* Heading */}
                 <div className="text-center mb-16">
                     <h2 className="font-heading text-4xl sm:text-5xl font-bold text-vo-text-primary italic">{title}</h2>

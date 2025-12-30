@@ -811,8 +811,8 @@
 
 /* ========== Why People Love Ventoutt - Scroll Section (Native Sticky) ========== */
 .why-love-scroll-section {
-  background: var(--color-secondary-200);
-  /* var(--vo-color-cream) */
+  background: #fffdf7;
+  /* Matching Hero background color */
   height: 150vh;
   position: relative;
   z-index: 10;
@@ -927,8 +927,8 @@
 
 /* Why Love Section Variations (for older specific pages) */
 .why-love-section {
-  background: var(--color-secondary-200);
-  /* var(--vo-color-cream) */
+  background: #fffdf7;
+  /* Matching Hero background color */
   min-height: 400vh;
   position: relative;
 }

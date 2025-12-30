@@ -39,7 +39,7 @@ const ExpandingGallery: React.FC = () => {
 
     return (
 
-        <section className="vo-expanding-gallery-section pt-12 pb-20 px-[5%] bg-white">
+        <section className="vo-expanding-gallery-section pt-12 pb-20 px-[5%]">
             <div className="max-w-[1400px] mx-auto">
                 <div className="text-center mb-8 space-y-4">
                     <h2 className="font-heading text-4xl sm:text-5xl font-bold text-vo-text-primary leading-tight">

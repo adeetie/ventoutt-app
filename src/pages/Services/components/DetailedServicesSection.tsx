@@ -7,28 +7,28 @@ gsap.registerPlugin(ScrollTrigger);
 
 const SERVICES = [
     {
-        title: "Individual Therapy",
-        desc: "Personalized sessions focusing on your mental health journey. We address anxiety, depression, trauma, and personal growth through evidence-based practices.",
-        image: "https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=800&q=80",
-        features: ["Anxiety & Depression", "Trauma Recovery", "Identity & Self-Esteem", "Grief & Loss"]
-    },
-    {
-        title: "Couple Therapy",
-        desc: "Strengthen your bond and resolve conflicts with expert guidance. We help partners build trust, improve communication, and find common ground.",
-        image: "https://images.unsplash.com/photo-1516589174184-c685ca3c162e?w=800&q=80",
-        features: ["Conflict Resolution", "Communication Skills", "Trust Rebuilding", "Premarital Counseling"]
-    },
-    {
-        title: "Venting Space",
-        desc: "Sometimes you just need to let it out. Our anonymous venting space provides instant relief with trained listeners who understand your need to be heard.",
-        image: "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=800&q=80",
-        features: ["24/7 Availability", "100% Anonymous", "Judgment-Free", "Safe Environment"]
-    },
-    {
-        title: "Expert Coaching",
-        desc: "Goal-oriented guidance for your career and personal life. Unlock your potential with actionable strategies and mindset shifts.",
+        title: "Mental Health Guidance (Coaching)",
+        desc: "Feeling stuck? Our expert psychologists help you navigate life's challenges—career, relationships, stress, and personal growth. Get the clarity and tools you need to move forward.",
         image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80",
-        features: ["Career Transition", "Leadership Skills", "Time Management", "Mindset Shift"]
+        features: ["Goal-Oriented Support", "Skill Building", "Personal Growth", "Actionable Strategies"],
+        buttonText: "Book Guidance Session",
+        popular: true
+    },
+    {
+        title: "Instant Venting",
+        desc: "Need to let it all out? Connect with a trained empathetic listener in seconds. Whether you're frustrated, sad, or just need to talk, we're here to listen without judgment.",
+        image: "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=800&q=80",
+        features: ["24/7 Availability", "100% Anonymous", "No Diagnosis Needed", "Immediate Relief"],
+        buttonText: "Start Venting Now",
+        popular: false
+    },
+    {
+        title: "Professional Therapy",
+        desc: "Clinical support for diagnosed mental health conditions. Work with licensed therapists to manage depression, anxiety, trauma, and more through structured, evidence-based treatment.",
+        image: "https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=800&q=80",
+        features: ["Clinical Treatment", "Deep Trauma Work", "Licensed Experts", "Structured Healing"],
+        buttonText: "Find a Therapist",
+        popular: false
     }
 ];
 
@@ -79,9 +79,16 @@ const DetailedServicesSection: React.FC = () => {
                             }`}
                     >
                         {/* Text Content */}
-                        <div className="flex-1">
+                        <div className="flex-1 relative">
+                            {/* MOST POPULAR BADGE */}
+                            {service.popular && (
+                                <span className="inline-block px-3 py-1 bg-[#F57F17] text-white text-xs font-bold rounded-full mb-4 shadow-sm">
+                                    ⭐ MOST POPULAR
+                                </span>
+                            )}
+
                             <h2
-                                className="mb-5"
+                                className="mb-5 mt-2"
                                 style={{
                                     fontFamily: 'var(--font-heading)',
                                     fontSize: '32px',
@@ -139,7 +146,7 @@ const DetailedServicesSection: React.FC = () => {
                                 onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#D84315')}
                                 onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'var(--vo-color-primary, #F57F17)')}
                             >
-                                Book a Session
+                                {service.buttonText}
                             </a>
                         </div>
 
@@ -193,10 +200,6 @@ const DetailedServicesSection: React.FC = () => {
                         top: 150px;
                         z-index: 30;
                     }
-                    .service-detail-row:nth-child(4) {
-                        top: 180px;
-                        z-index: 40;
-                    }
                     
                     /* Content comes first */
                     .service-detail-row > div:first-child {
@@ -214,6 +217,8 @@ const DetailedServicesSection: React.FC = () => {
                     .service-detail-row > div:last-child img {
                         height: 250px;
                         border-radius: 0;
+                        object-fit: cover;
+                        width: 100%;
                     }
                     
                     .service-detail-row h2 {

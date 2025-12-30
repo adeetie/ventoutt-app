@@ -56,11 +56,13 @@ const GuidanceVsTherapy: React.FC = () => {
     }, { scope: sectionRef });
 
     return (
-        <section ref={sectionRef} className="vo-section py-0 bg-white relative overflow-hidden perspective-[1200px]">
+        <section ref={sectionRef} className="vo-section py-0 relative overflow-hidden perspective-[1200px]">
             {/* 3D Animated Background Card -> Expands to Full Width */}
-            <div className="gvt-3d-card w-full mx-auto bg-[#FFE4AD] rounded-none py-16 lg:py-24 shadow-sm will-change-transform origin-top">
+            <div className="gvt-3d-card w-full mx-auto bg-[#FFE4AD] rounded-none py-24 lg:py-32 shadow-sm will-change-transform origin-top relative overflow-hidden">
 
-                <div className="max-w-[1400px] mx-auto px-[5%]">
+                {/* Internal Wireframe Waves (Subtle) - REMOVED for Global System */}
+
+                <div className="max-w-[1400px] mx-auto px-[5%] relative z-10">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                         {/* LEFT COLUMN: Text Content */}
                         <div className="gvt-left flex flex-col items-start text-left">
@@ -138,6 +140,8 @@ const GuidanceVsTherapy: React.FC = () => {
                         </div>
                     </div>
                 </div>
+
+                {/* Bottom Wave Divider (White Mask) - REMOVED for Global System */}
             </div>
         </section>
     );

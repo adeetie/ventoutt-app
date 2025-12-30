@@ -62,7 +62,7 @@ const FitSection: React.FC = () => {
 
     return (
         <section className="vo-fit-section py-24 px-[5%] bg-white overflow-hidden relative">
-            <div className="max-w-[1240px] mx-auto space-y-16 relative">
+            <div className="max-w-[1240px] mx-auto space-y-16 relative z-10">
 
                 {/* Header */}
                 <div className="text-center space-y-4">

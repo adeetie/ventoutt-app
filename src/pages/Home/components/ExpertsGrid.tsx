@@ -89,11 +89,11 @@ const DesktopExpertCard: React.FC<{ expert: any }> = ({ expert }) => {
             }}
         >
             {/* Photo Container */}
-            <div className="flex-1 relative overflow-hidden">
+            <div className="flex-1 relative overflow-hidden rounded-t-[20px]">
                 <img
                     src={expert.image}
                     alt={expert.name}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 rounded-t-[20px]"
                 />
             </div>
 
@@ -257,7 +257,7 @@ const SwipeStack: React.FC = () => {
                         {item.type === 'photo' ? (
                             <>
                                 <div className="w-full h-[75%] relative pointer-events-none">
-                                    <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
+                                    <img src={item.image} alt={item.name} className="w-full h-full object-cover rounded-t-[24px]" />
                                     <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-xl py-2 px-3 flex flex-col items-center shadow-lg min-w-[50px]">
                                         <span className="text-[#E68638] text-xs font-bold w-full text-center border-b border-gray-200 pb-1 mb-1">SCORE</span>
                                         <span className="text-lg font-extrabold text-vo-black leading-none">{item.rating}</span>
@@ -312,11 +312,12 @@ const SwipeStack: React.FC = () => {
     );
 };
 
+
 // --- MAIN SECTION ---
 const ExpertsGrid: React.FC = () => {
     return (
-        <section className="vo-experts-section py-24 bg-[#faf7f2] relative z-20" id="verified-partners">
-            <div className="max-w-[1240px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-[60px] items-start">
+        <section className="vo-experts-section py-24 bg-[#F5F5F5] relative z-20" id="verified-partners">
+            <div className="max-w-[1240px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-[60px] items-start relative z-10">
 
                 {/* --- LEFT COLUMN --- */}
                 <div className="flex flex-col gap-10">

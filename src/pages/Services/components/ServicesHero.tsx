@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import WaveDivider from '../../../components/shared/WaveDivider';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -30,10 +31,10 @@ const ServicesHero: React.FC = () => {
 
     return (
         <section
-            className="bg-[#F4EDE4] pt-[140px] pb-20 px-[60px] md:px-5 relative z-[1]"
+            className="bg-[#F4EDE4] pt-[140px] pb-20 px-[60px] md:px-5 relative z-[1] overflow-hidden"
             style={{ fontFamily: 'var(--font-body)', color: 'var(--vo-color-charcoal)' }}
         >
-            <div className="max-w-[1400px] mx-auto">
+            <div className="max-w-[1400px] mx-auto relative z-20">
                 {/* Header: Title + Desktop Text */}
                 <div className="flex flex-col md:flex-row justify-between items-start mb-[60px] md:mb-[30px] gap-0 md:gap-10">
                     <h1
@@ -46,7 +47,7 @@ const ServicesHero: React.FC = () => {
                         className="hidden md:block text-lg leading-[1.6] max-w-[450px] text-[#555555] mt-2.5"
                         style={{ fontFamily: 'var(--font-body)' }}
                     >
-                        Our experienced team of psycologist therapists, and rehabilitation experts work together to create personalized care plans.
+                        Our experienced team of MA Psychology professionals, mental health guides, and empathetic listeners work together to create personalized support plans for young adults navigating life's challenges.
                     </p>
                 </div>
 
@@ -168,9 +169,12 @@ const ServicesHero: React.FC = () => {
                     className="md:hidden text-sm leading-[1.6] text-[#555555] text-left mt-5 px-[5px]"
                     style={{ fontFamily: 'var(--font-body)' }}
                 >
-                    Our experienced team of psycologist therapists, and rehabilitation experts work together to create personalized care plans.
+                    Our experienced team of MA Psychology professionals, mental health guides, and empathetic listeners work together to create personalized support plans for young adults navigating life's challenges.
                 </p>
             </div>
+
+            {/* Bottom Wave Divider - DISABLED */}
+            {/* <WaveDivider position="bottom" className="text-white z-10" /> */}
 
             {/* Add desktop-specific grid template rows */}
             <style dangerouslySetInnerHTML={{

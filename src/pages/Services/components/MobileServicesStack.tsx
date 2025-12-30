@@ -7,28 +7,25 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 const MOBILE_SERVICES = [
     {
-        title: "Therapy",
-        desc: "Specialized care for anxiety, depression, and trauma. Professionals with 3+ years experience.",
-        image: "https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=600&q=80",
-        cta: "Start Therapy"
-    },
-    {
-        title: "Family Counseling",
-        desc: "Strengthen family bonds and resolve conflicts. Affordable online support for home harmony.",
-        image: "https://images.unsplash.com/photo-1511895426328-dc8714191300?w=600&q=80",
-        cta: "Book Family Session"
-    },
-    {
-        title: "Venting Space",
-        desc: "Instant, anonymous relief for your thoughts. Always judgment-free with active listeners.",
-        image: "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=600&q=80",
-        cta: "Vent Now"
-    },
-    {
-        title: "Career Coaching",
-        desc: "Expert guidance for career transition and leadership. Goal-oriented actionable strategies.",
+        title: "Mental Health Guidance (Coaching)",
+        desc: "Feeling stuck? Expert psychologists help you navigate life's challenges—career, relationships, stress.",
         image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80",
-        cta: "Unlock Potential"
+        cta: "Book Guidance",
+        popular: true
+    },
+    {
+        title: "Instant Venting",
+        desc: "Immediate emotional release with trained listeners. 100% anonymous and judgment-free.",
+        image: "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=600&q=80",
+        cta: "Vent Now",
+        popular: false
+    },
+    {
+        title: "Professional Therapy",
+        desc: "Clinical support for diagnosed conditions. Structured treatment with licensed therapists.",
+        image: "https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=600&q=80",
+        cta: "Find Therapist",
+        popular: false
     }
 ];
 
@@ -53,8 +50,8 @@ const MobileServicesStack: React.FC = () => {
     }, { scope: sectionRef });
 
     return (
-        <section ref={sectionRef} className="py-24 px-[5%] bg-vo-bg lg:hidden overflow-hidden">
-            <div className="space-y-12 mb-12 text-center">
+        <section ref={sectionRef} className="py-24 px-[5%] bg-vo-bg lg:hidden overflow-hidden relative">
+            <div className="space-y-12 mb-12 text-center relative z-10">
                 <span className="text-primary font-bold text-sm tracking-widest uppercase">Mobile Focus</span>
                 <h2 className="font-heading text-4xl font-bold text-vo-text-primary italic">Our Specialized Services</h2>
             </div>
@@ -66,7 +63,13 @@ const MobileServicesStack: React.FC = () => {
                         className="vo-mobile-service-card sticky top-24 bg-vo-white p-6 rounded-[32px] shadow-xl border border-vo-border-light space-y-6"
                         style={{ top: `${96 + (idx * 20)}px`, zIndex: idx + 1 }}
                     >
-                        <div className="aspect-video rounded-[24px] overflow-hidden">
+                        <div className="aspect-video rounded-[24px] overflow-hidden relative">
+                            {/* MOST POPULAR BADGE */}
+                            {service.popular && (
+                                <div className="absolute top-4 left-4 bg-[#F57F17] text-white text-xs font-bold px-3 py-1 rounded-full shadow-md z-10">
+                                    ⭐ MOST POPULAR
+                                </div>
+                            )}
                             <img src={service.image} alt={service.title} className="w-full h-full object-cover" />
                         </div>
                         <div className="space-y-4">

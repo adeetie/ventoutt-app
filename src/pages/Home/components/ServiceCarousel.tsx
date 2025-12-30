@@ -50,9 +50,9 @@ const ServiceCarousel: React.FC = () => {
     };
 
     return (
-        <section className="py-20 bg-[#F4EDE4] overflow-hidden">
+        <section className="py-20 bg-[#F4EDE4] overflow-hidden relative">
             {/* Header */}
-            <div className="text-center mb-12 px-5">
+            <div className="text-center mb-12 px-5 relative z-10">
                 <h2
                     className="font-bold text-[48px] text-[#212121] mb-4"
                     style={{

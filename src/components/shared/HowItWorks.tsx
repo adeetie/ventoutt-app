@@ -147,7 +147,7 @@ const HowItWorks: React.FC<HowItWorksProps> = ({ title = "How It Works", steps }
 
     return (
         <section ref={containerRef} className="how-scroll-wrapper py-24 bg-[#faf7f2] relative overflow-hidden">
-            <div className="max-w-[1400px] mx-auto px-[5%]">
+            <div className="max-w-[1400px] mx-auto px-[5%] relative z-10">
                 <div className="mb-16 sm:mb-24 space-y-2 text-left">
                     <span className="text-[#5D5D5D] font-bold text-xs tracking-[0.2em] uppercase block mb-4">SIMPLE PROCESS</span>
                     <h2 className="font-heading text-4xl sm:text-6xl font-bold text-[#1a1a1a]">{title}</h2>

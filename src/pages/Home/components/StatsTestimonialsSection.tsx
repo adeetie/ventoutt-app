@@ -221,7 +221,17 @@ const TextCard: React.FC<{ testimonial: Testimonial }> = ({ testimonial }) => (
 
 // --- Main Component ---
 
-const StatsTestimonialsSection: React.FC = () => {
+interface StatsTestimonialsSectionProps {
+    showStats?: boolean;  // Default true (homepage), false for other pages
+    title?: string;       // Default "You're not alone in this"
+    subtitle?: string;    // Default long text, can be hidden with empty string
+}
+
+const StatsTestimonialsSection: React.FC<StatsTestimonialsSectionProps> = ({
+    showStats = true,
+    title = "You're not alone in this",
+    subtitle = "Thousands of young adults across the globe have found support, clarity, and growth through Ventoutt. Their journeys started just like yours—with a single message, a moment of courage, and a decision to seek help."
+}) => {
     const sectionRef = useRef<HTMLDivElement>(null);
     const marqueeRef = useRef<HTMLDivElement>(null);
     const marqueeAnimationRef = useRef<number | null>(null);
@@ -310,10 +320,12 @@ const StatsTestimonialsSection: React.FC = () => {
             }
         });
 
+
     }, { scope: sectionRef });
 
     return (
-        <section ref={sectionRef} className="relative w-full py-24 lg:py-32 bg-white overflow-hidden">
+        <section ref={sectionRef} className="relative w-full py-24 lg:py-32 overflow-hidden">
+
             {/* --- Background Map (Inline SVG Pattern) --- */}
             <div className="absolute inset-0 pointer-events-none opacity-[0.08]" aria-hidden="true">
                 <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
@@ -334,12 +346,13 @@ const StatsTestimonialsSection: React.FC = () => {
                 {/* --- Section 1: Testimonials --- */}
                 <div className="text-center mb-16 st-heading">
                     <h2 className="font-heading text-4xl lg:text-6xl font-bold text-[#2D2D2D] mb-6">
-                        You're not alone in this
+                        {title}
                     </h2>
-                    <p className="font-body text-lg lg:text-xl text-gray-500 max-w-3xl mx-auto leading-relaxed">
-                        Thousands of young adults across the globe have found support, clarity, and growth through Ventoutt.
-                        Their journeys started just like yours—with a single message, a moment of courage, and a decision to seek help.
-                    </p>
+                    {subtitle && (
+                        <p className="font-body text-lg lg:text-xl text-gray-500 max-w-3xl mx-auto leading-relaxed">
+                            {subtitle}
+                        </p>
+                    )}
                 </div>
 
                 {/* Marquee Container */}
@@ -366,61 +379,65 @@ const StatsTestimonialsSection: React.FC = () => {
                     </span>
                 </div>
 
-                {/* --- Section 2: Stats --- */}
-                <div className="text-center mb-16 st-heading">
-                    <h3 className="font-heading text-3xl lg:text-5xl font-bold text-[#2D2D2D] mb-4">
-                        A global community of support
-                    </h3>
-                    <p className="font-body text-lg text-gray-500 max-w-2xl mx-auto">
-                        From Tokyo to Toronto, London to Los Angeles—young adults everywhere are choosing Ventoutt for accessible, affordable, and authentic mental health support.
-                    </p>
-                </div>
-
-                <div className="st-stats-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 items-start">
-                    {/* Stat Card 1 (Down) */}
-                    <div className="st-stat-card bg-black p-8 rounded-2xl shadow-xl hover:-translate-y-4 transition-transform duration-500 border border-white/10 lg:mt-12 group">
-                        <div className="text-5xl lg:text-5xl font-bold text-[#4DA394] mb-2 font-heading group-hover:scale-110 transition-transform duration-300 origin-left">
-                            {stats.users.toLocaleString()}+
+                {/* --- Section 2: Stats (Conditional) --- */}
+                {showStats && (
+                    <>
+                        <div className="text-center mb-16 st-heading">
+                            <h3 className="font-heading text-3xl lg:text-5xl font-bold text-[#2D2D2D] mb-4">
+                                A global community of support
+                            </h3>
+                            <p className="font-body text-lg text-gray-500 max-w-2xl mx-auto">
+                                From Tokyo to Toronto, London to Los Angeles—young adults everywhere are choosing Ventoutt for accessible, affordable, and authentic mental health support.
+                            </p>
                         </div>
-                        <div className="text-xl font-bold text-white mb-2">Users</div>
-                        <p className="text-sm text-gray-400 leading-relaxed">
-                            People who found someone to talk to when they needed it most
-                        </p>
-                    </div>
 
-                    {/* Stat Card 2 (Up) */}
-                    <div className="st-stat-card bg-black p-8 rounded-2xl shadow-xl hover:-translate-y-4 transition-transform duration-500 border border-white/10 group">
-                        <div className="text-5xl lg:text-5xl font-bold text-[#FF6B6B] mb-2 font-heading group-hover:scale-110 transition-transform duration-300 origin-left">
-                            100+
-                        </div>
-                        <div className="text-xl font-bold text-white mb-2">Countries</div>
-                        <p className="text-sm text-gray-400 leading-relaxed">
-                            Spread across 170 countries and counting—supporting young adults everywhere
-                        </p>
-                    </div>
+                        <div className="st-stats-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 items-start">
+                            {/* Stat Card 1 (Down) */}
+                            <div className="st-stat-card bg-black p-8 rounded-2xl shadow-xl hover:-translate-y-4 transition-transform duration-500 border border-white/10 lg:mt-12 group">
+                                <div className="text-5xl lg:text-5xl font-bold text-[#4DA394] mb-2 font-heading group-hover:scale-110 transition-transform duration-300 origin-left">
+                                    {stats.users.toLocaleString()}+
+                                </div>
+                                <div className="text-xl font-bold text-white mb-2">Users</div>
+                                <p className="text-sm text-gray-400 leading-relaxed">
+                                    People who found someone to talk to when they needed it most
+                                </p>
+                            </div>
 
-                    {/* Stat Card 3 (Down) */}
-                    <div className="st-stat-card bg-black p-8 rounded-2xl shadow-xl hover:-translate-y-4 transition-transform duration-500 border border-white/10 lg:mt-12 group">
-                        <div className="text-5xl lg:text-5xl font-bold text-[#FFD93D] mb-2 font-heading group-hover:scale-110 transition-transform duration-300 origin-left">
-                            {stats.hours.toLocaleString()}
-                        </div>
-                        <div className="text-xl font-bold text-white mb-2">Hours</div>
-                        <p className="text-sm text-gray-400 leading-relaxed">
-                            Total hours of meaningful conversation, support, and care
-                        </p>
-                    </div>
+                            {/* Stat Card 2 (Up) */}
+                            <div className="st-stat-card bg-black p-8 rounded-2xl shadow-xl hover:-translate-y-4 transition-transform duration-500 border border-white/10 group">
+                                <div className="text-5xl lg:text-5xl font-bold text-[#FF6B6B] mb-2 font-heading group-hover:scale-110 transition-transform duration-300 origin-left">
+                                    100+
+                                </div>
+                                <div className="text-xl font-bold text-white mb-2">Countries</div>
+                                <p className="text-sm text-gray-400 leading-relaxed">
+                                    Spread across 170 countries and counting—supporting young adults everywhere
+                                </p>
+                            </div>
 
-                    {/* Stat Card 4 (Up) */}
-                    <div className="st-stat-card bg-black p-8 rounded-2xl shadow-xl hover:-translate-y-4 transition-transform duration-500 border border-white/10 group">
-                        <div className="text-5xl lg:text-5xl font-bold text-[#6C5CE7] mb-2 font-heading group-hover:scale-110 transition-transform duration-300 origin-left">
-                            9.5★
+                            {/* Stat Card 3 (Down) */}
+                            <div className="st-stat-card bg-black p-8 rounded-2xl shadow-xl hover:-translate-y-4 transition-transform duration-500 border border-white/10 lg:mt-12 group">
+                                <div className="text-5xl lg:text-5xl font-bold text-[#FFD93D] mb-2 font-heading group-hover:scale-110 transition-transform duration-300 origin-left">
+                                    {stats.hours.toLocaleString()}
+                                </div>
+                                <div className="text-xl font-bold text-white mb-2">Hours</div>
+                                <p className="text-sm text-gray-400 leading-relaxed">
+                                    Total hours of meaningful conversation, support, and care
+                                </p>
+                            </div>
+
+                            {/* Stat Card 4 (Up) */}
+                            <div className="st-stat-card bg-black p-8 rounded-2xl shadow-xl hover:-translate-y-4 transition-transform duration-500 border border-white/10 group">
+                                <div className="text-5xl lg:text-5xl font-bold text-[#6C5CE7] mb-2 font-heading group-hover:scale-110 transition-transform duration-300 origin-left">
+                                    9.5★
+                                </div>
+                                <div className="text-xl font-bold text-white mb-2">Feedback</div>
+                                <p className="text-sm text-gray-400 leading-relaxed">
+                                    Loved by our community for quality, affordability, and genuine care
+                                </p>
+                            </div>
                         </div>
-                        <div className="text-xl font-bold text-white mb-2">Feedback</div>
-                        <p className="text-sm text-gray-400 leading-relaxed">
-                            Loved by our community for quality, affordability, and genuine care
-                        </p>
-                    </div>
-                </div>
+                    </>
+                )}
 
             </div>
 

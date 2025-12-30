@@ -15,9 +15,8 @@ const VETTING_STEPS = [
 import FAQ from '../../components/shared/FAQ';
 import RelatedBlogs from '../../components/shared/RelatedBlogs';
 import SpecializationsChallenges from '../../components/shared/SpecializationsChallenges';
-// import VentingBanner from '../../components/shared/VentingBanner';
 import FitSection from '../Home/components/FitSection';
-import Testimonials from '../Home/components/TestimonialsSection';
+import StatsTestimonialsSection from '../Home/components/StatsTestimonialsSection';
 
 const Therapy: React.FC = () => {
     useEffect(() => {
@@ -29,7 +28,11 @@ const Therapy: React.FC = () => {
             <main>
                 <TherapyHero />
                 <TherapyFeatures />
-                <Testimonials />
+                <StatsTestimonialsSection
+                    showStats={false}
+                    title="What Our Users Say"
+                    subtitle=""
+                />
                 <WhyLoveSection />
                 <HowItWorks steps={VETTING_STEPS} />
                 <TherapyExperts />

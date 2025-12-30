@@ -1,11 +1,7 @@
-import React, { useRef } from 'react';
-import gsap from 'gsap';
-import { useGSAP } from '@gsap/react';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import React from 'react';
 
 // Components
 import HeroTransition from './components/HeroTransition';
-// import Hero from './components/Hero'; // Kept for reference
 import ExpandingGallery from './components/ExpandingGallery';
 import GuidanceVsTherapy from './components/GuidanceVsTherapy';
 import StickyStack from './components/StickyStack';
@@ -45,75 +41,58 @@ const FAQ_ITEMS = [
 ];
 
 const Home = () => {
-    // GSAP Background animation removed per user request
-
     return (
         <main className="vo-home">
+            {/* 1. Hero */}
             <div className="bg-[#fffdf7]">
                 <HeroTransition />
             </div>
 
-            <div className="gallery-section bg-white">
+            {/* 2. Gallery */}
+            <div className="bg-white">
                 <ExpandingGallery />
             </div>
 
-            <div className="guidance-section bg-[#f0fdf4]">
-                <GuidanceVsTherapy />
-            </div>
+            {/* 3. Guidance (Yellow Card Section) */}
+            <GuidanceVsTherapy />
 
-            <div className="stats-testimonials-section bg-white">
+            {/* 4. Stats */}
+            <div className="bg-white">
                 <StatsTestimonialsSection />
             </div>
 
-            {/* Real Experts (Dark Mode) */}
-            <div className="bg-[#1a1a1a]">
-                <RealExperts />
-            </div>
+            {/* 5. Real Experts (Charcoal) */}
+            <RealExperts />
 
-            {/* Why People Love VentOutt (Sticky Stack) - White */}
-            <div className="sticky-stack-section bg-white">
+            {/* 6. Sticky Stack */}
+            <div className="bg-[#fffdf7]">
                 <StickyStack />
             </div>
 
-            {/* Experts Grid - Beige */}
-            <div className="bg-[#faf7f2]">
-                <ExpertsGrid />
-            </div>
+            {/* 7. Experts Grid (Beige) */}
+            <ExpertsGrid />
 
-            {/* Fit Section - White */}
-            <div className="bg-white">
-                <FitSection />
-            </div>
+            {/* 8. Fit Section */}
+            <FitSection />
 
-            {/* How It Works - Beige */}
-            <div className="bg-[#faf7f2]">
-                <HowItWorks />
-            </div>
+            {/* 9. How It Works (Beige - from component) */}
+            <HowItWorks />
 
-            {/* Partners Section - Black (Contrast) */}
-            <div className="bg-[#1a1a1a]">
-                <PartnersCarousel />
-            </div>
+            {/* 10. Partners (Charcoal - from component) */}
+            <PartnersCarousel />
 
-            {/* Related Blogs - Beige */}
-            <div className="bg-[#faf7f2]">
-                <RelatedBlogs />
-            </div>
+            {/* 11. Related Blogs (Beige - from component) */}
+            <RelatedBlogs />
 
-            <div className="bg-white py-16 lg:py-24">
-                <div className="max-w-[800px] mx-auto px-6">
-                    <h2 className="text-3xl lg:text-4xl font-heading font-bold text-center mb-12 text-[#2D2D2D]">
-                        Frequently Asked Questions
-                    </h2>
-                    <FAQ items={FAQ_ITEMS} title="" className="py-0 bg-transparent" />
-                </div>
-            </div>
+            {/* 12. FAQ (White - from component) */}
+            <FAQ items={FAQ_ITEMS} />
 
-            <div className="bg-[#faf7f2]">
-                <SpecializationsChallenges />
-            </div>
+            {/* 13. Specializations (Beige - from component) */}
+            <SpecializationsChallenges />
         </main>
     );
 };
 
 export default Home;
+
+

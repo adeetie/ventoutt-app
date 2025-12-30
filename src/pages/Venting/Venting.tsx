@@ -5,7 +5,7 @@ import { CheckCircle, Clock, Shield, Users, Heart } from 'lucide-react';
 import TherapyHero from '../Therapy/components/TherapyHero';
 import TherapyFeatures, { type Feature } from '../Therapy/components/TherapyFeaturesSection';
 import WhyLoveSection, { type WhyLovePoint } from '../Therapy/components/WhyLoveSection';
-import Testimonials from '../Home/components/TestimonialsSection';
+import StatsTestimonialsSection from '../Home/components/StatsTestimonialsSection';
 import ExpertsGrid from '../Home/components/ExpertsGrid';
 import FitSection from '../Home/components/FitSection';
 import RelatedBlogs from '../../components/shared/RelatedBlogs';
@@ -66,7 +66,11 @@ const Venting: React.FC = () => {
 
                 <TherapyFeatures features={VENTING_FEATURES} />
 
-                <Testimonials />
+                <StatsTestimonialsSection
+                    showStats={false}
+                    title="What Our Users Say"
+                    subtitle=""
+                />
 
                 <WhyLoveSection
                     title="Why People Love Venting"
