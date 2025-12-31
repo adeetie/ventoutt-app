@@ -19,11 +19,21 @@ const FitSection: React.FC = () => {
     useEffect(() => {
         if (!isMobile || !trackRef.current) return;
 
-        // 1) Scroll Coaching into view on mount
+        // 1) Center the Coaching card horizontally within the carousel (NOT the whole page)
         const centerCard = trackRef.current.children[1] as HTMLElement;
-        if (centerCard) {
+        if (centerCard && trackRef.current) {
             setTimeout(() => {
-                centerCard.scrollIntoView({ behavior: 'auto', block: 'nearest', inline: 'center' });
+                // Calculate scroll position to center the card within the container
+                const containerWidth = trackRef.current!.offsetWidth;
+                const cardLeft = centerCard.offsetLeft;
+                const cardWidth = centerCard.offsetWidth;
+                const scrollPosition = cardLeft - (containerWidth / 2) + (cardWidth / 2);
+
+                // Use scrollTo on the container, NOT scrollIntoView (which scrolls the page)
+                trackRef.current!.scrollTo({
+                    left: scrollPosition,
+                    behavior: 'auto'
+                });
             }, 100);
         }
 

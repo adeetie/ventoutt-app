@@ -7,6 +7,12 @@
     <title>ventoutt-react</title>
   </head>
   <body>
+    <!-- CRITICAL: Disable scroll restoration and scroll to top BEFORE any scripts run -->
+    <script>
+      if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+    </script>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
