@@ -232,7 +232,7 @@ const SwipeStack: React.FC = () => {
     };
 
     return (
-        <div className="relative w-full max-w-[320px] h-[500px] mx-auto mt-10 perspective-[1000px] touch-none select-none">
+        <div className="relative w-full max-w-[320px] h-[500px] mx-auto mt-10 perspective-[1000px] touch-pan-y select-none">
             {stack.map((item: any, index) => {
                 if (index > 2) return null;
                 const style = getCardStyle(index);
@@ -241,7 +241,7 @@ const SwipeStack: React.FC = () => {
                 return (
                     <div
                         key={item.uniqueId}
-                        className={`absolute inset-0 w-full h-full rounded-[24px] bg-white shadow-2xl overflow-hidden touch-none border border-black/5 ${isTop ? 'cursor-grab' : ''}`}
+                        className={`absolute inset-0 w-full h-full rounded-[24px] bg-white shadow-2xl overflow-hidden touch-pan-y border border-black/5 ${isTop ? 'cursor-grab' : ''}`}
                         style={{
                             zIndex: style.zIndex,
                             transform: style.transform,

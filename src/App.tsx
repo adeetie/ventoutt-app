@@ -5,6 +5,7 @@ import Footer from './components/global/Footer/Footer.tsx';
 import Chatbot from './components/global/Chatbot/Chatbot.tsx';
 import Popups from './components/global/Popups/Popups.tsx';
 import ThemeSwitcher from './components/global/ThemeSwitcher/ThemeSwitcher.tsx';
+import ScrollToTop from './components/global/ScrollToTop.tsx';
 import Home from './pages/Home/Home';
 import Coaching from './pages/Coaching/Coaching';
 import Venting from './pages/Venting/Venting';
@@ -18,6 +19,9 @@ function App() {
   const [isChatbotOpen, setIsChatbotOpen] = useState(false);
 
   useEffect(() => {
+    // Scroll to top on initial load/refresh
+    window.scrollTo(0, 0);
+
     // FORCE RESET to Classic Theme as per user request
     setTheme('light');
     localStorage.setItem('ventoutt-theme', 'light');
@@ -29,6 +33,7 @@ function App() {
 
   return (
     <Router>
+      <ScrollToTop />
       <div className="min-h-screen bg-theme-primary flex flex-col transition-colors duration-500">
         <Header />
         <main className="flex-grow">
@@ -51,3 +56,4 @@ function App() {
 }
 
 export default App;
+
