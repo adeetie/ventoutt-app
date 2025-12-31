@@ -84,7 +84,7 @@ const HeroTransition: React.FC = () => {
         <section ref={containerRef} className="hero-transition-section w-full relative overflow-hidden flex flex-col pt-32 lg:pt-40 pb-20 px-[5%] min-h-screen">
 
             {/* --- HEADER --- */}
-            <div className="w-full max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-32 mb-12 lg:mb-16 items-start">
+            <div className="w-full max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 mb-12 lg:mb-16 items-start">
 
                 {/* Left Header */}
                 <div className="flex flex-col items-start text-left">

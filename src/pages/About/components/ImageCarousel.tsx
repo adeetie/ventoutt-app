@@ -33,7 +33,7 @@ const ImageCarousel: React.FC = () => {
     }, { scope: containerRef });
 
     return (
-        <section ref={containerRef} className="pt-12 pb-64 overflow-hidden">
+        <section ref={containerRef} className="pt-12 pb-16 lg:pb-64 overflow-hidden">
             <div className="w-full">
                 <div
                     ref={trackRef}

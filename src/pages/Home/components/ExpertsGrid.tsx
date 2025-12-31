@@ -232,7 +232,7 @@ const SwipeStack: React.FC = () => {
     };
 
     return (
-        <div className="relative w-full max-w-[320px] h-[500px] mx-auto mt-10 perspective-[1000px] touch-pan-y select-none">
+        <div className="relative w-full max-w-[320px] h-[500px] mx-auto mt-6 perspective-[1000px] touch-pan-y select-none" style={{ position: 'relative' }}>
             {stack.map((item: any, index) => {
                 if (index > 2) return null;
                 const style = getCardStyle(index);
@@ -339,7 +339,7 @@ const ExpertsGrid: React.FC = () => {
                     </div>
 
                     {/* Mobile Swipe Container (Visible < 1024px) */}
-                    <div className="lg:hidden block">
+                    <div className="lg:hidden block w-full min-h-[550px] overflow-visible">
                         <SwipeStack />
                     </div>
                 </div>

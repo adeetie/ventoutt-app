@@ -19,6 +19,20 @@ const Popups: React.FC<PopupsProps> = ({ onOpenChatbot }) => {
     const scrollPopupRef = useRef<HTMLDivElement>(null);
     const containerRef = useRef<HTMLDivElement>(null);
 
+    // Auto-open chatbot on service pages
+    useEffect(() => {
+        const servicePaths = ['/services', '/venting', '/coaching', '/therapy'];
+        const isServicePage = servicePaths.includes(location.pathname);
+
+        if (isServicePage) {
+            // Small delay to ensure page has loaded
+            const timer = setTimeout(() => {
+                onOpenChatbot();
+            }, 500);
+            return () => clearTimeout(timer);
+        }
+    }, [location.pathname, onOpenChatbot]);
+
     // Entry Modal Logic
     useEffect(() => {
         const isHome = location.pathname === '/' || location.pathname === '/index.html';
@@ -80,13 +94,15 @@ const Popups: React.FC<PopupsProps> = ({ onOpenChatbot }) => {
         // Scroll Popup
         if (isScrollPopupShown) {
             gsap.to(scrollPopupRef.current, {
-                bottom: '24px',
+                y: 0,
+                opacity: 1,
                 duration: 0.6,
                 ease: 'back.out(1.7)'
             });
         } else {
             gsap.to(scrollPopupRef.current, {
-                bottom: '-300px',
+                y: '120%',
+                opacity: 0,
                 duration: 0.4,
                 ease: 'power2.in'
             });
@@ -104,7 +120,7 @@ const Popups: React.FC<PopupsProps> = ({ onOpenChatbot }) => {
             {/* Scroll Popup */}
             <div
                 ref={scrollPopupRef}
-                className="fixed bottom-[-300px] left-1/2 -translate-x-1/2 w-[440px] max-w-[94%] bg-white flex flex-col p-5 gap-3 rounded-md shadow-xl z-[1000]"
+                className="fixed bottom-6 left-1/2 -translate-x-1/2 translate-y-[120%] opacity-0 w-[440px] max-w-[94%] bg-white flex flex-col p-5 gap-3 rounded-md shadow-xl z-[1000]"
             >
                 <h3 className="font-heading text-lg font-semibold italic text-center text-vo-text-primary">
                     Still not sure what kind of support would help?

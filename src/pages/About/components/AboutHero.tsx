@@ -40,16 +40,15 @@ const AboutHero: React.FC = () => {
 
     return (
         <section
-            className="pt-[140px] pb-20 px-[60px] md:px-5 relative z-[1] overflow-hidden"
+            className="pt-8 lg:pt-40 pb-10 lg:pb-20 px-4 lg:px-[60px] relative z-[1] overflow-hidden"
             style={{ fontFamily: 'var(--font-body)', color: 'var(--vo-color-charcoal)' }}
         >
             <div className="max-w-[1400px] mx-auto relative z-20">
                 {/* Header: Title + Desktop Text */}
-                <div className="flex flex-col md:flex-row justify-between items-start mb-[60px] md:mb-[30px] gap-0 md:gap-10">
+                <div className="flex flex-col md:flex-row justify-between items-start mb-6 md:mb-[30px] gap-0 md:gap-10">
                     <div className="max-w-full md:max-w-[600px]">
                         <h1
-                            className="font-heading text-[3rem] md:text-[5rem] leading-[1] md:leading-[0.95] text-center md:text-left m-0 text-[#2D2D2D] font-bold" // Increased size slightly for "About Us"
-                            style={{ fontFamily: 'var(--font-heading)', fontStyle: 'italic' }}
+                            className="font-heading text-4xl lg:text-5xl leading-[1.1] text-center md:text-left m-0 text-[#2D2D2D] font-bold italic"
                         >
                             About Us
                         </h1>
@@ -68,17 +67,14 @@ const AboutHero: React.FC = () => {
                     </div>
                 </div>
 
-                {/* Grid: Mobile 2x2, Desktop 4x2 */}
+                {/* Grid: Mobile 2x1, Desktop 4x2 */}
                 <div
                     ref={gridRef}
-                    className="grid grid-cols-2 md:grid-cols-4 gap-[15px] md:gap-6 mb-5 md:mb-0"
-                    style={{
-                        gridTemplateRows: '200px 200px'
-                    }}
+                    className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-5 mb-5 md:mb-0 auto-rows-[180px] md:auto-rows-[200px]"
                 >
-                    {/* Item 1: Team Member / Community */}
+                    {/* Item 1: Team Member / Community - Full column on mobile */}
                     <div
-                        className="hero-grid-item rounded-[20px] md:rounded-lg overflow-hidden relative col-start-1 row-span-2 md:row-span-1 md:col-start-1 md:row-start-1"
+                        className="hero-grid-item rounded-[16px] md:rounded-lg overflow-hidden relative aspect-square md:aspect-auto md:row-span-1 md:col-start-1 md:row-start-1"
                         style={{ boxShadow: '0 4px 20px rgba(0, 0, 0, 0.15)' }}
                     >
                         <img
@@ -88,13 +84,13 @@ const AboutHero: React.FC = () => {
                         />
                     </div>
 
-                    {/* Item 2: Support / Hands */}
+                    {/* Item 2: Support / Hands - Full column on mobile */}
                     <div
-                        className="hero-grid-item rounded-[20px] md:rounded-lg overflow-hidden relative col-start-2 row-start-1 md:col-start-2 md:row-start-1"
+                        className="hero-grid-item rounded-[16px] md:rounded-lg overflow-hidden relative aspect-square md:aspect-auto md:col-start-2 md:row-start-1"
                         style={{ boxShadow: '0 4px 20px rgba(0, 0, 0, 0.15)' }}
                     >
                         <img
-                            src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ec?auto=format&fit=crop&w=500&q=80"
+                            src="https://images.unsplash.com/photo-1516585427167-9f4af9627e6c?auto=format&fit=crop&w=500&q=80"
                             alt="Support"
                             className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                         />
@@ -144,9 +140,9 @@ const AboutHero: React.FC = () => {
                         </div>
                     </div>
 
-                    {/* Item 6: Play Button / Interactive Element */}
+                    {/* Item 6: Play Button - Desktop Only */}
                     <div
-                        className="hero-grid-item rounded-[20px] md:rounded-lg overflow-hidden relative col-start-2 row-start-2 md:col-start-4 md:row-start-2 flex items-center justify-center cursor-pointer transition-colors"
+                        className="hero-grid-item hidden md:flex rounded-lg overflow-hidden relative md:col-start-4 md:row-start-2 items-center justify-center cursor-pointer transition-colors"
                         style={{
                             boxShadow: '0 4px 20px rgba(0, 0, 0, 0.15)',
                             backgroundColor: 'var(--color-primary-500, #F57F17)'

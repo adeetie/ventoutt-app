@@ -23,19 +23,19 @@ const About: React.FC = () => {
     useScrollBackground();
 
     return (
-        <div ref={containerRef} className="vo-about pt-[100px] transition-colors duration-500">
+        <div ref={containerRef} className="vo-about pt-[80px] lg:pt-[100px] transition-colors duration-500">
             {/* 1. Hero Section - Light beige background -> Default Home Hero BG */}
-            <div className="bg-[#fffdf7] relative z-20" data-bg="#fffdf7">
+            <div className="bg-[#fffdf7] relative z-10" data-bg="#fffdf7">
                 <AboutHero />
             </div>
 
             {/* 2. Infinite Image Carousel - Same as hero (Part of Hero) */}
-            <div className="bg-[#fffdf7] rounded-b-[60px] overflow-hidden relative z-20" data-bg="#fffdf7">
+            <div className="bg-[#fffdf7] relative z-10" data-bg="#fffdf7">
                 <ImageCarousel />
             </div>
 
-            {/* 3. Empower Section - White (Overlaps with Carousel for rounded effect) */}
-            <div className="bg-white relative z-10 -mt-[60px] pt-[140px]" data-bg="#FFFFFF">
+            {/* 3. Empower Section - White */}
+            <div className="bg-white relative z-20" data-bg="#FFFFFF">
                 <Empower />
             </div>
 

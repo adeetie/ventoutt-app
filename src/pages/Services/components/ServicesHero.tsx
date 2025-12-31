@@ -31,15 +31,14 @@ const ServicesHero: React.FC = () => {
 
     return (
         <section
-            className="pt-32 lg:pt-40 pb-20 px-[60px] md:px-5 relative z-[1] overflow-hidden"
+            className="pt-32 lg:pt-40 pb-20 px-4 lg:px-[60px] relative z-[1] overflow-hidden"
             style={{ fontFamily: 'var(--font-body)', color: 'var(--vo-color-charcoal)' }}
         >
             <div className="max-w-[1400px] mx-auto relative z-20">
                 {/* Header: Title + Desktop Text */}
                 <div className="flex flex-col md:flex-row justify-between items-start mb-[60px] md:mb-[30px] gap-0 md:gap-10">
                     <h1
-                        className="font-heading text-[2rem] md:text-[3.75rem] leading-[1.2] md:leading-[1.1] max-w-full md:max-w-[600px] mx-auto md:mx-0 text-center md:text-left m-0 text-[#2D2D2D] font-bold"
-                        style={{ fontFamily: 'var(--font-heading)', fontStyle: 'italic' }}
+                        className="font-heading text-4xl lg:text-5xl leading-[1.1] max-w-full md:max-w-[600px] mx-auto md:mx-0 text-center md:text-left m-0 text-[#2D2D2D] font-bold italic"
                     >
                         Your partners in holistic wellness
                     </h1>
@@ -51,17 +50,17 @@ const ServicesHero: React.FC = () => {
                     </p>
                 </div>
 
-                {/* Grid: Mobile 2x2, Desktop 4x2 */}
+                {/* Grid: Mobile 2x1, Desktop 4x2 */}
                 <div
                     ref={gridRef}
-                    className="grid grid-cols-2 md:grid-cols-4 gap-[15px] md:gap-6 mb-5 md:mb-0"
+                    className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-6 mb-5 md:mb-0"
                     style={{
-                        gridTemplateRows: '200px 200px'
+                        gridTemplateRows: 'minmax(180px, 200px) md:repeat(2, minmax(180px, 1fr))'
                     }}
                 >
-                    {/* Item 1: Woman with Glasses */}
+                    {/* Item 1: Woman with Glasses - Full column on mobile */}
                     <div
-                        className="hero-grid-item rounded-[20px] md:rounded-lg overflow-hidden relative col-start-1 row-span-2 md:row-span-1 md:col-start-1 md:row-start-1"
+                        className="hero-grid-item rounded-[16px] md:rounded-lg overflow-hidden relative aspect-square md:aspect-auto md:row-span-1 md:col-start-1 md:row-start-1"
                         style={{ boxShadow: '0 4px 20px rgba(0, 0, 0, 0.15)' }}
                     >
                         <img
@@ -71,9 +70,9 @@ const ServicesHero: React.FC = () => {
                         />
                     </div>
 
-                    {/* Item 2: Modern House */}
+                    {/* Item 2: Modern House - Full column on mobile */}
                     <div
-                        className="hero-grid-item rounded-[20px] md:rounded-lg overflow-hidden relative col-start-2 row-start-1 md:col-start-2 md:row-start-1"
+                        className="hero-grid-item rounded-[16px] md:rounded-lg overflow-hidden relative aspect-square md:aspect-auto md:col-start-2 md:row-start-1"
                         style={{ boxShadow: '0 4px 20px rgba(0, 0, 0, 0.15)' }}
                     >
                         <img
@@ -142,9 +141,9 @@ const ServicesHero: React.FC = () => {
                         </div>
                     </div>
 
-                    {/* Item 6: Play Button - Mobile: bottom right, Desktop: col 4 row 2 */}
+                    {/* Item 6: Play Button - Desktop Only */}
                     <div
-                        className="hero-grid-item rounded-[20px] md:rounded-lg overflow-hidden relative col-start-2 row-start-2 md:col-start-4 md:row-start-2 flex items-center justify-center cursor-pointer transition-colors"
+                        className="hero-grid-item hidden md:flex rounded-lg overflow-hidden relative md:col-start-4 md:row-start-2 items-center justify-center cursor-pointer transition-colors"
                         style={{
                             boxShadow: '0 4px 20px rgba(0, 0, 0, 0.15)',
                             backgroundColor: 'var(--color-primary-500, #F57F17)'

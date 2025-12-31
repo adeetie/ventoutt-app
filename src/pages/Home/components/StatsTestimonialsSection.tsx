@@ -236,6 +236,8 @@ const StatsTestimonialsSection: React.FC<StatsTestimonialsSectionProps> = ({
     const marqueeRef = useRef<HTMLDivElement>(null);
     const marqueeAnimationRef = useRef<number | null>(null);
     const isPausedRef = useRef(false);
+    const statsContainerRef = useRef<HTMLDivElement>(null);
+    const statsTrackRef = useRef<HTMLDivElement>(null);
 
     // Stats State (reusing logic from AboutHero)
     const [stats, setStats] = useState({ users: 36398, hours: 625331 });
@@ -295,6 +297,8 @@ const StatsTestimonialsSection: React.FC<StatsTestimonialsSectionProps> = ({
     }, []);
 
     useGSAP(() => {
+        const mm = gsap.matchMedia();
+
         // Fade in Headings
         gsap.from('.st-heading', {
             y: 30,
@@ -307,20 +311,44 @@ const StatsTestimonialsSection: React.FC<StatsTestimonialsSectionProps> = ({
             }
         });
 
-        // Stagger Stats Entrance (Rise Up Effect)
-        gsap.from('.st-stat-card', {
-            y: 100, // Increased rise distance for more dramatic effect
-            opacity: 0,
-            duration: 1,
-            stagger: 0.2,
-            ease: 'power4.out',
-            scrollTrigger: {
-                trigger: '.st-stats-grid',
-                start: 'top 85%'
-            }
+        // Stagger Stats Entrance (Rise Up Effect) - Desktop Only
+        mm.add("(min-width: 1024px)", () => {
+            gsap.from('.st-stat-card', {
+                y: 100,
+                opacity: 0,
+                duration: 1,
+                stagger: 0.2,
+                ease: 'power4.out',
+                scrollTrigger: {
+                    trigger: '.st-stats-grid',
+                    start: 'top 85%'
+                }
+            });
         });
 
+        // Mobile: Horizontal scroll animation for stats
+        mm.add("(max-width: 1023px)", () => {
+            if (!statsTrackRef.current) return;
 
+            const totalWidth = statsTrackRef.current.scrollWidth;
+            const viewportWidth = window.innerWidth;
+
+            gsap.to(statsTrackRef.current, {
+                x: -(totalWidth - viewportWidth),
+                ease: "none",
+                scrollTrigger: {
+                    trigger: statsContainerRef.current,
+                    start: "top top",
+                    end: `+=${totalWidth}`,
+                    pin: true,
+                    scrub: 1,
+                    invalidateOnRefresh: true,
+                    anticipatePin: 1
+                }
+            });
+        });
+
+        return () => mm.revert();
     }, { scope: sectionRef });
 
     return (
@@ -391,49 +419,79 @@ const StatsTestimonialsSection: React.FC<StatsTestimonialsSectionProps> = ({
                             </p>
                         </div>
 
-                        <div className="st-stats-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 items-start">
-                            {/* Stat Card 1 (Down) */}
-                            <div className="st-stat-card bg-black p-8 rounded-2xl shadow-xl hover:-translate-y-4 transition-transform duration-500 border border-white/10 lg:mt-12 group">
-                                <div className="text-5xl lg:text-5xl font-bold text-[#4DA394] mb-2 font-heading group-hover:scale-110 transition-transform duration-300 origin-left">
-                                    {stats.users.toLocaleString()}+
+                        <div ref={statsContainerRef} className="st-stats-section overflow-hidden">
+                            {/* DESKTOP: Grid Layout */}
+                            <div className="st-stats-grid hidden lg:grid grid-cols-4 gap-8 items-start">
+                                {/* Stat Card 1 (Down) */}
+                                <div className="st-stat-card bg-black p-8 rounded-2xl shadow-xl hover:-translate-y-4 transition-transform duration-500 border border-white/10 mt-12 group">
+                                    <div className="text-5xl font-bold text-[#4DA394] mb-2 font-heading group-hover:scale-110 transition-transform duration-300 origin-left">
+                                        {stats.users.toLocaleString()}+
+                                    </div>
+                                    <div className="text-xl font-bold text-white mb-2">Users</div>
+                                    <p className="text-sm text-gray-400 leading-relaxed">
+                                        People who found someone to talk to when they needed it most
+                                    </p>
                                 </div>
-                                <div className="text-xl font-bold text-white mb-2">Users</div>
-                                <p className="text-sm text-gray-400 leading-relaxed">
-                                    People who found someone to talk to when they needed it most
-                                </p>
+
+                                {/* Stat Card 2 (Up) */}
+                                <div className="st-stat-card bg-black p-8 rounded-2xl shadow-xl hover:-translate-y-4 transition-transform duration-500 border border-white/10 group">
+                                    <div className="text-5xl font-bold text-[#FF6B6B] mb-2 font-heading group-hover:scale-110 transition-transform duration-300 origin-left">
+                                        100+
+                                    </div>
+                                    <div className="text-xl font-bold text-white mb-2">Countries</div>
+                                    <p className="text-sm text-gray-400 leading-relaxed">
+                                        Spread across 170 countries and counting—supporting young adults everywhere
+                                    </p>
+                                </div>
+
+                                {/* Stat Card 3 (Down) */}
+                                <div className="st-stat-card bg-black p-8 rounded-2xl shadow-xl hover:-translate-y-4 transition-transform duration-500 border border-white/10 mt-12 group">
+                                    <div className="text-5xl font-bold text-[#FFD93D] mb-2 font-heading group-hover:scale-110 transition-transform duration-300 origin-left">
+                                        {stats.hours.toLocaleString()}
+                                    </div>
+                                    <div className="text-xl font-bold text-white mb-2">Hours</div>
+                                    <p className="text-sm text-gray-400 leading-relaxed">
+                                        Total hours of meaningful conversation, support, and care
+                                    </p>
+                                </div>
+
+                                {/* Stat Card 4 (Up) */}
+                                <div className="st-stat-card bg-black p-8 rounded-2xl shadow-xl hover:-translate-y-4 transition-transform duration-500 border border-white/10 group">
+                                    <div className="text-5xl font-bold text-[#6C5CE7] mb-2 font-heading group-hover:scale-110 transition-transform duration-300 origin-left">
+                                        9.5★
+                                    </div>
+                                    <div className="text-xl font-bold text-white mb-2">Feedback</div>
+                                    <p className="text-sm text-gray-400 leading-relaxed">
+                                        Loved by our community for quality, affordability, and genuine care
+                                    </p>
+                                </div>
                             </div>
 
-                            {/* Stat Card 2 (Up) */}
-                            <div className="st-stat-card bg-black p-8 rounded-2xl shadow-xl hover:-translate-y-4 transition-transform duration-500 border border-white/10 group">
-                                <div className="text-5xl lg:text-5xl font-bold text-[#FF6B6B] mb-2 font-heading group-hover:scale-110 transition-transform duration-300 origin-left">
-                                    100+
+                            {/* MOBILE: Horizontal Scrollytelling */}
+                            <div className="lg:hidden w-full h-[60vh] relative flex items-center">
+                                <div ref={statsTrackRef} className="flex gap-4 px-6 w-max">
+                                    <div className="w-[80vw] bg-black p-8 border border-white/10 rounded-[32px] shrink-0">
+                                        <div className="text-5xl font-bold text-[#4DA394] mb-3 font-heading">{stats.users.toLocaleString()}+</div>
+                                        <div className="text-2xl font-bold text-white mb-3">Community Members</div>
+                                        <p className="text-gray-400 text-lg leading-relaxed">People who found someone to talk to when they needed it most.</p>
+                                    </div>
+                                    <div className="w-[80vw] bg-black p-8 border border-white/10 rounded-[32px] shrink-0">
+                                        <div className="text-5xl font-bold text-[#FF6B6B] mb-3 font-heading">100+</div>
+                                        <div className="text-2xl font-bold text-white mb-3">Global Reach</div>
+                                        <p className="text-gray-400 text-lg leading-relaxed">Supporting young adults across 170 countries and counting.</p>
+                                    </div>
+                                    <div className="w-[80vw] bg-black p-8 border border-white/10 rounded-[32px] shrink-0">
+                                        <div className="text-5xl font-bold text-[#FFD93D] mb-3 font-heading">{stats.hours.toLocaleString()}</div>
+                                        <div className="text-2xl font-bold text-white mb-3">Hours of Care</div>
+                                        <p className="text-gray-400 text-lg leading-relaxed">Meaningful conversation and genuine human support delivered daily.</p>
+                                    </div>
+                                    <div className="w-[80vw] bg-black p-8 border border-white/10 rounded-[32px] shrink-0">
+                                        <div className="text-5xl font-bold text-[#6C5CE7] mb-3 font-heading">9.5★</div>
+                                        <div className="text-2xl font-bold text-white mb-3">Community Trust</div>
+                                        <p className="text-gray-400 text-lg leading-relaxed">Loved for quality, affordability, and empathetic listening.</p>
+                                    </div>
+                                    <div className="w-[10vw] shrink-0"></div>
                                 </div>
-                                <div className="text-xl font-bold text-white mb-2">Countries</div>
-                                <p className="text-sm text-gray-400 leading-relaxed">
-                                    Spread across 170 countries and counting—supporting young adults everywhere
-                                </p>
-                            </div>
-
-                            {/* Stat Card 3 (Down) */}
-                            <div className="st-stat-card bg-black p-8 rounded-2xl shadow-xl hover:-translate-y-4 transition-transform duration-500 border border-white/10 lg:mt-12 group">
-                                <div className="text-5xl lg:text-5xl font-bold text-[#FFD93D] mb-2 font-heading group-hover:scale-110 transition-transform duration-300 origin-left">
-                                    {stats.hours.toLocaleString()}
-                                </div>
-                                <div className="text-xl font-bold text-white mb-2">Hours</div>
-                                <p className="text-sm text-gray-400 leading-relaxed">
-                                    Total hours of meaningful conversation, support, and care
-                                </p>
-                            </div>
-
-                            {/* Stat Card 4 (Up) */}
-                            <div className="st-stat-card bg-black p-8 rounded-2xl shadow-xl hover:-translate-y-4 transition-transform duration-500 border border-white/10 group">
-                                <div className="text-5xl lg:text-5xl font-bold text-[#6C5CE7] mb-2 font-heading group-hover:scale-110 transition-transform duration-300 origin-left">
-                                    9.5★
-                                </div>
-                                <div className="text-xl font-bold text-white mb-2">Feedback</div>
-                                <p className="text-sm text-gray-400 leading-relaxed">
-                                    Loved by our community for quality, affordability, and genuine care
-                                </p>
                             </div>
                         </div>
                     </>

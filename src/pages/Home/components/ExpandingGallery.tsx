@@ -70,7 +70,7 @@ const ExpandingGallery: React.FC = () => {
 
                             <div className="absolute inset-0 p-4 sm:p-8 flex flex-col justify-end text-white">
                                 <div className={`transition-all duration-500 transform ${activeIndex === idx ? 'translate-y-0' : 'translate-y-2'}`}>
-                                    <h3 className={`font-heading font-bold mb-1 sm:mb-2 leading-tight shadow-sm text-white transition-all duration-300 ${activeIndex === idx ? 'text-lg sm:text-3xl' : 'text-sm sm:text-2xl [writing-mode:vertical-rl] rotate-180 sm:rotate-0 sm:[writing-mode:horizontal-tb]'}`}>
+                                    <h3 className={`font-heading font-bold mb-1 sm:mb-2 leading-tight shadow-sm text-white transition-all duration-300 ${activeIndex === idx ? 'text-[12px] sm:text-3xl' : 'text-[9px] sm:text-2xl [writing-mode:vertical-rl] rotate-180 sm:rotate-0 sm:[writing-mode:horizontal-tb]'}`}>
                                         <span className={activeIndex !== idx ? '' : ''}>
                                             {card.title}
                                         </span>
@@ -83,15 +83,15 @@ const ExpandingGallery: React.FC = () => {
 
                                     <div className={`grid transition-all duration-700 ease-out ${activeIndex === idx ? 'grid-rows-[1fr] opacity-100 mt-2' : 'grid-rows-[0fr] opacity-0'}`}>
                                         <div className="overflow-hidden">
-                                            <p className="font-body text-white/90 mb-4 sm:mb-6 max-w-md text-xs sm:text-lg leading-relaxed shadow-sm block">
+                                            <p className="font-body text-white/90 mb-4 sm:mb-6 max-w-md text-[8px] sm:text-lg leading-relaxed shadow-sm block">
                                                 {card.desc}
                                             </p>
-                                            <div className="mb-4 text-sm font-semibold text-white/80">
+                                            <div className="mb-4 text-[9px] sm:text-sm font-semibold text-white/80">
                                                 {card.price}
                                             </div>
                                             <Link
                                                 to={card.link}
-                                                className="inline-flex items-center gap-2 text-white font-heading font-bold hover:underline text-sm sm:text-lg group"
+                                                className="inline-flex items-center gap-2 text-white font-heading font-bold hover:underline text-[10px] sm:text-lg group"
                                             >
                                                 {card.cta}
                                                 <svg className="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none">

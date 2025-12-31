@@ -90,9 +90,9 @@ const Footer: React.FC = () => {
 
             {/* Global Footer */}
             <footer className="footer-main bg-[#212121] pt-20 px-[5%] pb-10 text-white relative border-theme-accent transition-colors duration-500">
-                <div className="max-w-[1400px] mx-auto mb-16 border-b border-white/10 pb-10 flex flex-wrap justify-between gap-10">
-                    {/* Col 1: Logo & Social */}
-                    <div className="footer-col flex-[1.2] min-w-[250px] flex flex-col items-start gap-5">
+                <div className="max-w-[1400px] mx-auto mb-16 border-b border-white/10 pb-10 flex flex-col lg:flex-row lg:flex-wrap lg:justify-between gap-10">
+                    {/* Col 1: Logo & Social - Centered on mobile */}
+                    <div className="footer-col flex-[1.2] min-w-[250px] flex flex-col items-center lg:items-start gap-5 w-full lg:w-auto order-1 lg:order-none">
                         <Link to="/">
                             <img src={logoUrl} alt="Ventoutt Logo" className="w-[120px] h-auto object-contain brightness-0 invert" />
                         </Link>
@@ -109,31 +109,35 @@ const Footer: React.FC = () => {
                         </div>
                     </div>
 
-                    {/* Col 2: Quick Links */}
-                    <div className="footer-col flex-1 min-w-[200px] mb-5 sm:text-center lg:text-left">
-                        <h4 className="font-heading font-bold text-xl text-white mb-6">Quick Links</h4>
-                        <ul className="space-y-3">
-                            <li><Link to="/therapy" className="text-white/80 text-sm hover:text-theme-accent hover:translate-x-1 inline-block transition-all duration-300">Online Therapy</Link></li>
-                            <li><Link to="/venting" className="text-white/80 text-sm hover:text-theme-accent hover:translate-x-1 inline-block transition-all duration-300">Online Venting</Link></li>
-                            <li><Link to="/internships" className="text-white/80 text-sm hover:text-theme-accent hover:translate-x-1 inline-block transition-all duration-300">Internship</Link></li>
-                            <li><Link to="/about" className="text-white/80 text-sm hover:text-theme-accent hover:translate-x-1 inline-block transition-all duration-300">About Us</Link></li>
-                            <li><Link to="/blog" className="text-white/80 text-sm hover:text-theme-accent hover:translate-x-1 inline-block transition-all duration-300">Blogs</Link></li>
-                        </ul>
+                    {/* Quick Links & Therapies in same row on mobile */}
+                    <div className="flex flex-row gap-8 lg:contents order-2 lg:order-none w-full lg:w-auto">
+
+                        {/* Col 2: Quick Links */}
+                        <div className="footer-col flex-1 min-w-[140px] lg:min-w-[200px] text-left">
+                            <h4 className="font-heading font-bold text-xl text-white mb-6">Quick Links</h4>
+                            <ul className="space-y-3">
+                                <li><Link to="/therapy" className="text-white/80 text-sm hover:text-theme-accent hover:translate-x-1 inline-block transition-all duration-300">Online Therapy</Link></li>
+                                <li><Link to="/venting" className="text-white/80 text-sm hover:text-theme-accent hover:translate-x-1 inline-block transition-all duration-300">Online Venting</Link></li>
+                                <li><Link to="/internships" className="text-white/80 text-sm hover:text-theme-accent hover:translate-x-1 inline-block transition-all duration-300">Internship</Link></li>
+                                <li><Link to="/about" className="text-white/80 text-sm hover:text-theme-accent hover:translate-x-1 inline-block transition-all duration-300">About Us</Link></li>
+                                <li><Link to="/blog" className="text-white/80 text-sm hover:text-theme-accent hover:translate-x-1 inline-block transition-all duration-300">Blogs</Link></li>
+                            </ul>
+                        </div>
+
+                        {/* Col 3: Therapies */}
+                        <div className="footer-col flex-1 min-w-[140px] lg:min-w-[200px] text-left">
+                            <h4 className="font-heading font-bold text-xl text-white mb-6">Therapies</h4>
+                            <ul className="space-y-3">
+                                <li><a href="#" className="text-white/80 text-sm hover:text-theme-accent hover:translate-x-1 inline-block transition-all duration-300">For Young Adults</a></li>
+                                <li><a href="#" className="text-white/80 text-sm hover:text-theme-accent hover:translate-x-1 inline-block transition-all duration-300">Family Therapy</a></li>
+                                <li><a href="#" className="text-white/80 text-sm hover:text-theme-accent hover:translate-x-1 inline-block transition-all duration-300">Couple Therapy</a></li>
+                                <li><a href="#" className="text-white/80 text-sm hover:text-theme-accent hover:translate-x-1 inline-block transition-all duration-300">For LGBTQ+</a></li>
+                            </ul>
+                        </div>
                     </div>
 
-                    {/* Col 3: Therapies */}
-                    <div className="footer-col flex-1 min-w-[200px] mb-5 sm:text-center lg:text-left">
-                        <h4 className="font-heading font-bold text-xl text-white mb-6">Therapies</h4>
-                        <ul className="space-y-3">
-                            <li><a href="#" className="text-white/80 text-sm hover:text-theme-accent hover:translate-x-1 inline-block transition-all duration-300">For Young Adults</a></li>
-                            <li><a href="#" className="text-white/80 text-sm hover:text-theme-accent hover:translate-x-1 inline-block transition-all duration-300">Family Therapy</a></li>
-                            <li><a href="#" className="text-white/80 text-sm hover:text-theme-accent hover:translate-x-1 inline-block transition-all duration-300">Couple Therapy</a></li>
-                            <li><a href="#" className="text-white/80 text-sm hover:text-theme-accent hover:translate-x-1 inline-block transition-all duration-300">For LGBTQ+</a></li>
-                        </ul>
-                    </div>
-
-                    {/* Col 4: Contact */}
-                    <div className="footer-col flex-[1.2] min-w-[250px] sm:text-center lg:text-left">
+                    {/* Col 4: Contact - Centered on mobile */}
+                    <div className="footer-col flex-[1.2] min-w-[250px] text-center lg:text-left order-3 lg:order-none w-full lg:w-auto">
                         <h4 className="font-heading font-bold text-xl text-white mb-6">Reach Out To Us At</h4>
                         <div className="space-y-5 text-sm text-white/80 leading-relaxed">
                             <div>

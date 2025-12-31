@@ -53,7 +53,7 @@ const TherapyHero: React.FC<TherapyHeroProps> = ({
 
             {/* Hero Text Content */}
             <section className="service-text-content-wrapper" ref={textRef}>
-                <h1 className="service-hero-title-dark">{title}</h1>
+                <h1 className="font-heading text-4xl lg:text-5xl leading-[1.1] text-[#2D2D2D] font-bold italic mb-6 max-w-[900px] mx-auto">{title}</h1>
                 <p className="service-hero-subtitle-dark">
                     {subtitle}
                 </p>

@@ -58,7 +58,7 @@ const GuidanceVsTherapy: React.FC = () => {
     return (
         <section ref={sectionRef} className="vo-section py-0 relative overflow-hidden perspective-[1200px]">
             {/* 3D Animated Background Card -> Expands to Full Width */}
-            <div className="gvt-3d-card w-full mx-auto bg-[#FFE4AD] rounded-none py-24 lg:py-32 shadow-sm will-change-transform origin-top relative overflow-hidden">
+            <div className="gvt-3d-card w-full mx-auto bg-[#F5F5F5] rounded-none py-24 lg:py-32 shadow-sm will-change-transform origin-top relative overflow-hidden">
 
                 {/* Internal Wireframe Waves (Subtle) - REMOVED for Global System */}
 
